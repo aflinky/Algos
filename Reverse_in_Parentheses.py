@@ -1,3 +1,8 @@
+# Write a function that reverses characters in (possibly nested) parentheses in the input string
+# Input strings will always be well-formed with matching ()s
+# Ex input = "(bar)" => "rab"
+# Ex input = "foo(bar(baz))blim" => "foobazrabblim"
+
 def reverseInParentheses(s):
     for i in range(len(s)-1, -1, -1):
         if s[i] == "(":
