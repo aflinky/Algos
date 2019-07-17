@@ -29,3 +29,13 @@
 26 -  Even Digits Only `JS & Python`
 
 27 -  Variable Name `JS & Python`
+
+28 -  Alphabetic Shift `JS & Python`
+
+29 -  Chess Cell Board Color `JS & Python`
+
+30 -  Circle of Numbers `JS & Python`
+
+32 -  Absolute Values Sum Minimization `JS & Python`
+
+33 -  Strings Rearrangement `Python`
