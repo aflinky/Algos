@@ -18,5 +18,5 @@ function isIPv4Address(s) {
     s=s.split(".")
     // if (s.length !== 4) return false
     // return s.every(x=> x<256 && x>-1 && x!=="" && !isNaN(x))
-    return s.length===4&&s.every(x=>x!=""&&!isNaN(x)&&x>=0&&x<256)
+    return s.length===4 && s.every(x => x !="" && !isNaN(x) && x>=0 && x<256)
 }
