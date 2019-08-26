@@ -1,5 +1,5 @@
 # CodeSignal
-**A small collection of some of my favorite Code Signal problems completed from Feb 2019-May 2019 - JS &amp; Python**
+**A small collection of some of my favorite algorithms completed from Feb 2019-May 2019 - JS &amp; Python**
 (retroactively added to this repo)
 > https://app.codesignal.com/profile/amanda_f7
 
