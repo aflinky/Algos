@@ -1,9 +1,10 @@
-# CodeSignal
-**A small collection of some of my favorite algorithms completed from Feb 2019-May 2019 - JS &amp; Python**
-(retroactively added to this repo)
+# A small collection of some of my favorite algorithms completed overtime - JS &amp; Python
 > https://app.codesignal.com/profile/amanda_f7
+> https://www.hackerrank.com/avflinkette
+> https://www.codewars.com/users/avf2114
+> https://leetcode.com/aflinky/
 
-## Arcade Problems
+## CodeSignal Arcade Problems
 ### Intro
 10 -  Common Character Count `JS & Python`
 
