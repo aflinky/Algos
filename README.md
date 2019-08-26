@@ -1,7 +1,10 @@
 # A small collection of some of my favorite algorithms completed overtime - JS &amp; Python
 > https://app.codesignal.com/profile/amanda_f7
+
 > https://www.hackerrank.com/avflinkette
+
 > https://www.codewars.com/users/avf2114
+
 > https://leetcode.com/aflinky/
 
 ## CodeSignal Arcade Problems
