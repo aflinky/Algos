@@ -1,8 +1,16 @@
-# CodeSignal
-**A collection of select Code Signal problems completed from Feb 2019-May 2019 - JS &amp; Python**
+# A small collection of some of my favorite algorithms completed overtime - JS &amp; Python
 > https://app.codesignal.com/profile/amanda_f7
 
-## Arcade Problems
+> https://www.hackerrank.com/avflinkette
+
+> https://www.codewars.com/users/avf2114
+
+> https://leetcode.com/aflinky/
+
+## LeetCode Problems
+Range Sum of BST `JS`
+
+## CodeSignal Arcade Problems
 ### Intro
 10 -  Common Character Count `JS & Python`
 
@@ -39,3 +47,7 @@
 32 -  Absolute Values Sum Minimization `JS & Python`
 
 33 -  Strings Rearrangement `Python`
+
+## HackerRank Problems
+
+## CodeWars Problems
