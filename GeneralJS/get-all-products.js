@@ -9,43 +9,22 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
-// function getAllProducts(array) {
-//   if (!array.length) return [0]
-//   const results = [];
-//   let loops = 0;
-//   let sum;
-//   while (loops < array.length) {
-//     sum = 1;
-//     for (let i = 0; i < array.length - 1; i++) {
-//       sum *= array[i]
-//     }
-//     results.push(sum)
-//     array.push(array.shift())
-//     loops++;
-//   }
-//   return results
-// }
-
 function getAllProducts(array) {
-  if (!array.length) return [0]
-  const results = [];
-  let accum = 1;
-  results.push(accum);
-  for (let i=0; i<array.length-1; i++) {
-    accum *= array[i];
+  if (!array.length) return [0] //if empty array => [0]
+  const results = []; //declare results
+  let accum = 1; //set accum = 1
+  results.push(accum); //add to results
+  for (let i=0; i<array.length-1; i++) { //iterate through to second-to-last elem of array
+    accum *= array[i]; //multiply accum and add to results array
     results.push(accum)
-    // console.log(results)
   }
-  accum = 1;
-  for (i=array.length-1; i>0; i--) {
-    accum *= array[i];
-    results[i-1] *= accum
-    // console.log(results)
+  accum = 1; //reset accum to 1
+  for (i=array.length-1; i>0; i--) { //iterate backwards from end of arry to first element
+    accum *= array[i]; //multiply accum
+    results[i-1] *= accum //multiply results[i-1] by accum
   }
   return results
 }
 
 // console.log(getAllProducts([1, 7, 3, 4]))
 // console.log(getAllProducts([1, 7, 0, 4]))
-
-module.exports = getAllProducts;

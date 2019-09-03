@@ -82,7 +82,7 @@
 - Stack-Queue `JS`
 - Two Sum `JS`
 - Valid BST `JS`
-- GCD `JS`
+- GCD `JS` (Euclid)
 
 - Count Twos `JS`
 - Super Balanced (BST) `JS`
