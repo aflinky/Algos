@@ -8,8 +8,8 @@
 > https://leetcode.com/aflinky/
 
 ## LeetCode Problems
-- Range Sum of BST `JS` - BST
-- Count and Say `JS` - Memo
+- Range Sum of BST `JS` (BST)
+- Count and Say `JS` (Memo)
 
 ## CodeSignal Arcade Problems
 ### Intro
@@ -54,15 +54,15 @@
 - Draw Stairs `JS`
 - Mode-Mean `JS`
 
-- kth-to-last Node `JS`
+- kth-to-last Node `JS` (LL)
 - Power `JS`
 - Reverse in Place `JS`
 - String Rotation `JS`
 
-- Balanced Parens `JS`
+- Balanced Parens `JS` (stack)
 - Roman Numeral `JS`
 - Subset Sum `JS`
-- Bin-to-Dec `JS`
+- Bin-to-Dec `JS` (binary, conversion)
 
 - Match Word `JS`
 - Highest Product `JS`
@@ -70,7 +70,7 @@
 - Max Stack `JS`
 
 - Reverse Linked List `JS`
-- Apple Stock `JS`
+- Apple Stock `JS` (pointers)
 - Num to Words `JS`
 - Perm-Palin `JS`
 
@@ -81,7 +81,7 @@
 - GCD `JS`
 
 - Count Twos `JS`
-- Add Linked Lists `JS`
+- Add Linked Lists `JS` (LL)
 - Super Balanced (BST) `JS`
 - Repeast Number `JS`
 - Merge Ranges `JS`
@@ -99,15 +99,15 @@
 - Get All Products `JS`
 - Doubly-Linked List `JS`
 - Circle Country `JS`
-- Bubble Sort `JS`
+- Bubble Sort `JS` (sort)
 
 - Phonebook `JS`
 - New Intersections `JS`
 - Knight Jumps `JS`
 - Pascal Triangle `JS`
-- Common Elements `JS`
+- Common Elements `JS` (multiple arguments, dictionary)
 
-- Count Stairs `JS`
+- Count Stairs `JS` (memo, fibonacci)
 - Poker `JS`
 - Missing Number `JS`
 - Merge Array `JS`

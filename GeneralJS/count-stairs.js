@@ -39,28 +39,28 @@ function factorial(n, result = 1) {
   return factorial(n - 1, result)
 }
 
-function countStairs1(n) {
-  let ways = 0;
+// function countStairs1(n) {
+//   let ways = 0;
 
-  function takeSteps(n) {
-    if (n === 0) return ways++;
-    if (n < 0) return;
+//   function takeSteps(n) {
+//     if (n === 0) return ways++;
+//     if (n < 0) return;
 
-    takeSteps(n - 1);
-    takeSteps(n - 2);
-  }
+//     takeSteps(n - 1);
+//     takeSteps(n - 2);
+//   }
 
-  takeSteps(n);
+//   takeSteps(n);
 
-  return ways;
-}
+//   return ways;
+// }
 
-// Brute force
-function countStairs2(n) {
-  if (n === 0) return 1;
-  if (n < 0) return 0;
-  return countStairs2(n - 1) + countStairs2(n - 2);
-}
+// // Brute force
+// function countStairs2(n) {
+//   if (n === 0) return 1;
+//   if (n < 0) return 0;
+//   return countStairs2(n - 1) + countStairs2(n - 2);
+// }
 
 // Memoized
 function countStairs3(n) {
@@ -73,14 +73,16 @@ function countStairs3(n) {
     if (n === 0) return 1
     if (n < 0) return 0;
 
-    let n1 = cache[n - 1];
-    if (!n1) cache[n - 1] = n1 = counter(n - 1);
+    if (!cache[n-1]) cache[n - 1] = counter(n - 1);
 
-    let n2 = cache[n - 2];
-    if (!n2) cache[n - 2] = n2 = counter(n - 2);
+    if (!cache[n-2]) cache[n - 2] = counter(n - 2);
 
-    return n1 + n2;
+    return cache[n-1] + cache[n-2];
   }
-
   return counter(n)
 }
+
+// console.log(countStairs3(2))
+// console.log(countStairs3(3))
+// console.log(countStairs3(4))
+// console.log(countStairs3(5))

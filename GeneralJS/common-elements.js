@@ -21,22 +21,18 @@ function commonElements(...args) {
       if (obj[elem] === index) obj[elem] += 1; //if looking at other arrays and element in object, increase count (but only once per array)
     })
   });
-  const result = Object.keys(obj).filter(elem => { //filter object, keeping elements with counts === # of arguments/arrays
+  let result = Object.keys(obj).filter(elem => { //filter object, keeping elements with counts === # of arguments/arrays
     return obj[elem] === argumentArrays.length;
   });
-  console.log(result)
-  for (let item of result) {console.log(item)} //reparse elements of results array into 
-  console.log(result)
+  for (let i=0; i<result.length; i++) { //coerce numbers back to their primitive data type from string
+    if (!isNaN(result[i])) result[i] = JSON.parse(result[i])
+  }
   return (result.length) ? result : 'Nothing in Common!';
 }
-const meow = [1,2, 3]
-console.log(meow)
-const array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
-const array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
-const array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
-const array4 = ['ferret',12,12,45,9,66,77,78,2000];
-console.log(commonElements(array1, array2, array3, array4)) //[12, 'ferret']
-console.log(commonElements([1, 2, 3], [1, 5, 6], [5, 1, 7], [1, 4, 7])) //[1]
-console.log(commonElements([1, 2, 3], [1, 2, 6], [5, 1, 2], [1, 2, 7])) //[1, 2]
-
-module.exports = commonElements;
+// const array1 = [1, 4, 6, 7, 'ferret', 12, 12, 99, 2000, 'dog', 'dog', 99, 1000];
+// const array2 = [15, 9, 9, 'ferret', 9, 26, 12, 12, 'dog'];
+// const array3 = [23, 12, 12, 77, 'ferret', 9, 88, 100, 'dog'];
+// const array4 = ['ferret', 12, 12, 45, 9, 66, 77, 78, 2000];
+// console.log(commonElements(array1, array2, array3, array4)) //[12, 'ferret']
+// console.log(commonElements([1, 2, 3], [1, 5, 6], [5, 1, 7], [1, 4, 7])) //[1]
+// console.log(commonElements([1, 2, 3], [1, 2, 6], [5, 1, 2], [1, 2, 7])) //[1, 2]
