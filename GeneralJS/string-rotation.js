@@ -25,5 +25,3 @@ function stringRotation(s1, s2) {
 // stringRotation("hello", "llohe")
 // stringRotation("hello", "he")
 // stringRotation("hello", "ollhe")
-
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

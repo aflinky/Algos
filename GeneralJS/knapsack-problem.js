@@ -71,5 +71,3 @@ const solveKnapsackDP = (items, weightAvailable) => {
 ​
 // console.log(solveKnapsackDP(items, 3));
 // console.log(solveKnapsackDP(items, 5));
-
-module.exports = solveKnapsack;

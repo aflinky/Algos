@@ -92,5 +92,3 @@ function hasCycle(head) {
 // console.log(hasCycle(node1)); // => false
 // node5.next = node2;
 // console.log(hasCycle(node1)); // => true
-
-module.exports = { Node: Node, hasCycle: hasCycle }

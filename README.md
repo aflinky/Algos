@@ -52,71 +52,81 @@
 ## General Algos
 - kth-to-last Node `JS` (LL)
 - Zip Linked Lists `JS` (LL)
-- Reverse Linked List `JS` (LL)
+- Reverse Linked List `JS` (LL, pointers)
 - Add Linked Lists `JS` (LL)
-- Linked List Cycle `JS` (LL)
+- Linked List Cycle `JS` (LL, FLoyd, Brent)
 - Delete Dups `JS` (LL)
 - Doubly-Linked List `JS` (LL)
+
+- Bubble Sort `JS` (sort)
+- Insertion Sort `JS` (sort)
+- Merge Sort `JS` (sort, recursion)
+
+- Observed Pin `JS` (adjacency map, recursion)
+- Find In Ordered Set `JS` (Binary Search, recursion)
+- Count Stairs `JS` (memo, fibonacci, recursion)
+- Power `JS` (recursion)
+
+- Each Permutation `JS` (permutations, Heap)
+
+- Knapsack `JS` (dynamic)
+
+- Common Elements `JS` (multiple arguments, dictionary)
+
+- Bin-to-Dec `JS` (binary, conversion)
+
+- Apple Stock `JS` (pointers)
+
+- Super Balanced (BST) `JS`
+- Valid BST `JS` (BST)
+
+- GCD `JS` (Euclid)
+
+- Balanced Parens `JS` (stack)
+- Max Stack `JS` (stack)
 
 - Fizzbuzz `JS`
 - Draw Stairs `JS`
 - Mode-Mean `JS`
-
-- Power `JS` (recursion)
 - Reverse in Place `JS`
 - String Rotation `JS`
 
-- Balanced Parens `JS` (stack)
 - Roman Numeral `JS`
 - Subset Sum `JS`
-- Bin-to-Dec `JS` (binary, conversion)
 
 - Match Word `JS`
 - Highest Product `JS`
-- Max Stack `JS`
-- Apple Stock `JS` (pointers)
+- Multiples of 3 or 5 `JS`
+
 - Num to Words `JS`
 - Perm-Palin `JS`
 
 - Rotate Grid `JS`
 - Stack-Queue `JS`
 - Two Sum `JS`
-- Valid BST `JS`
-- GCD `JS` (Euclid)
+
 
 - Count Twos `JS`
-- Super Balanced (BST) `JS`
+
 - Repeast Number `JS`
 - Merge Ranges `JS`
 
-- Multiples of 3 or 5 `JS`
 - Max SubArray `JS`
 - Anagram `JS`
 - Event-Emitter `JS`
-- Find In Ordered Set `JS` (Binary Search, recursion)
 
-- Bubble Sort `JS` (sort)
-- Insertion Sort `JS` (sort)
-- Merge Sort `JS` (sort, recursion)
 - Unique Number `JS`
 - Get All Products `JS`
 - Circle Country `JS`
-
 - Phonebook `JS`
 - New Intersections `JS`
 - Knight Jumps `JS`
 - Pascal Triangle `JS`
-- Common Elements `JS` (multiple arguments, dictionary)
-
-- Count Stairs `JS` (memo, fibonacci, recursion)
 - Poker `JS`
 - Missing Number `JS`
 - Merge Array `JS`
 - Apply It `JS`
-- Knapsack `JS`
-- Observed Pin `JS` (adjacency map, recursion)
 
-- Each Permutation `JS` (permutations, Heap)
 
 ## HackerRank Problems
 

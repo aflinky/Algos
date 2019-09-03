@@ -75,5 +75,3 @@ console.log(stacky.pop())
 console.log(stacky.pop())
 console.log(stacky)
 console.log(stacky.getMax())
-
-module.exports = Stack;
