@@ -1,11 +1,4 @@
 # A small collection of some of my favorite algorithms completed overtime - JS &amp; Python
-> https://app.codesignal.com/profile/amanda_f7
-
-> https://www.hackerrank.com/avflinkette
-
-> https://www.codewars.com/users/avf2114
-
-> https://leetcode.com/aflinky/
 
 ## LeetCode Problems
 - Range Sum of BST `JS` (BST)
@@ -131,3 +124,11 @@
 ## HackerRank Problems
 
 ## CodeWars Problems
+
+> https://app.codesignal.com/profile/amanda_f7
+
+> https://www.hackerrank.com/avflinkette
+
+> https://www.codewars.com/users/avf2114
+
+> https://leetcode.com/aflinky/
