@@ -14,20 +14,18 @@
 */
 
 function drawStairs(n) {
-    if (typeof n==="number") {
-        if (0<n && n<=100) {
-            let stars = 1;
-            let str = "" ;
-            while (stars<=n) {
-                str += (" ").repeat(n-stars) + ("*").repeat(stars) ;
-                if (stars !== n) {str += '\n'}
-                stars++ ; 
-            } 
-            console.log(str) ;
-        }
+  if (typeof n === "number") {
+    if (0 < n && n <= 100) {
+      let stars = 1;
+      let str = "";
+      while (stars <= n) {
+        str += (" ").repeat(n - stars) + ("*").repeat(stars);
+        if (stars !== n) { str += '\n' }
+        stars++;
+      }
+      console.log(str);
     }
+  }
 }
 
 // drawStairs(6)
-
-module.exports = drawStairs;

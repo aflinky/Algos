@@ -42,5 +42,3 @@ console.log(countTwos(13));
 // console.log(countTwos(100));
 // console.log(countTwos(1000));
 console.log(countTwos(11420));
-
-module.exports = countTwos;

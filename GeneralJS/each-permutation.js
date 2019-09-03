@@ -40,5 +40,3 @@ const swap = (arr, i, j) => {
 eachPermutation([1, 2, 3], function(perm) {
   console.log(perm)
 });
-
-module.exports = eachPermutation;

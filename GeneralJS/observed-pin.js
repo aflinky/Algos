@@ -39,23 +39,53 @@ expectations = {
 
 */
 
-
-function getPINs(observed, idx = 0, result = []) {
-  if (!observed[idx]) return result;
-  const keyPad = [
+//with given keypad (good for when keypad is not in a specific order)
+function getPINs(observed, idx = 0, result = []) { //tail call recursion
+  if (!observed[idx]) return result; //if finished iterating through observed input string, return result
+  const keyPad = [ //declare and instantiate keypad
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
     [-1, 0, -1]
   ]
-  const curr = parseInt(observed[idx])
-  const currOptions = []
+  const curr = parseInt(observed[idx]) //parse # of observed at index
+  const currOptions = [] //declare current options (relevant to curr #)
 
-  for (let row = 0; row < 4; row++) {
+  for (let row = 0; row < 4; row++) { //nested for loops find numbers = # and numbers adjacent to # to add to currOptions
     for (let col = 0; col < 4; col++) {
       if ((keyPad[row][col] === curr || (keyPad[row - 1] && keyPad[row - 1][col] === curr) || (keyPad[row + 1] && keyPad[row + 1][col] === curr) || (keyPad[col + 1] && keyPad[row][col + 1] === curr) || (keyPad[col - 1] && keyPad[row][col - 1] === curr)) && keyPad[row][col] >- 1) currOptions.push(`${keyPad[row][col]}`)
     }
   }
+
+  if (!result.length) result = currOptions; //if result is empty, result = currOptions
+  else {
+    const temp = []
+    result.forEach(x => { //nested forEachs concatenate currOptions to the options already living in result
+      currOptions.forEach(y => {
+        temp.push(x + y)
+      })
+    })
+    result = temp //reassign result
+  }
+  return getPINs(observed, idx + 1, result) //invoke getPINs for every # in observed string
+}
+
+//with adjacency map
+function getPINs(observed, idx = 0, result = []) {
+  if (!observed[idx]) return result;
+  const adjMap = {
+    "0": ["0", "8"],
+    "1": ["1", "2", "4"],
+    "2": ["1", "2", "3", "5"],
+    "3": ["2", "3", "6"],
+    "4": ["1", "4", "5", "7"],
+    "5": ["2", "4", "5", "6", "8"],
+    "6": ["3", "5", "6", "9"],
+    "7": ["4", "7", "8"],
+    "8": ["5", "7", "8", "9"],
+    "9": ["6", "8", "9"],
+  }
+  const currOptions = adjMap[observed[idx]]
 
   if (!result.length) result = currOptions;
   else {
@@ -74,6 +104,3 @@ function getPINs(observed, idx = 0, result = []) {
 // console.log(getPINs("8"))
 // console.log(getPINs("0"))
 // console.log(getPINs("369"))
-
-
-module.exports = getPINs

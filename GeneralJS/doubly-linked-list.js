@@ -73,4 +73,3 @@ LinkedList.prototype.remove = function(val) {
 //   if (testcurr.prev) console.log(testcurr.val, testcurr.prev.val)
 // }
 // console.log(linky)
-module.exports = LinkedList;

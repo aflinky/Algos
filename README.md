@@ -66,10 +66,10 @@
 
 - Match Word `JS`
 - Highest Product `JS`
-- Zip Linked Lists `JS`
+- Zip Linked Lists `JS` (LL)
 - Max Stack `JS`
 
-- Reverse Linked List `JS`
+- Reverse Linked List `JS` (LL)
 - Apple Stock `JS` (pointers)
 - Num to Words `JS`
 - Perm-Palin `JS`
@@ -85,19 +85,19 @@
 - Super Balanced (BST) `JS`
 - Repeast Number `JS`
 - Merge Ranges `JS`
-- Linked List Cycle `JS`
+- Linked List Cycle `JS` (LL)
 
 - Multiples of 3 or 5 `JS`
 - Max SubArray `JS`
 - Anagram `JS`
-- Delete Dups `JS`
+- Delete Dups `JS` (LL)
 - Event-Emitter `JS`
 - Find In Ordered Set `JS`
 
 - Insertion Sort `JS`
 - Unique Number `JS`
 - Get All Products `JS`
-- Doubly-Linked List `JS`
+- Doubly-Linked List `JS` (LL)
 - Circle Country `JS`
 - Bubble Sort `JS` (sort)
 
@@ -107,15 +107,15 @@
 - Pascal Triangle `JS`
 - Common Elements `JS` (multiple arguments, dictionary)
 
-- Count Stairs `JS` (memo, fibonacci)
+- Count Stairs `JS` (memo, fibonacci, recursion)
 - Poker `JS`
 - Missing Number `JS`
 - Merge Array `JS`
 - Apply It `JS`
 - Knapsack `JS`
-- Observed Pin `JS`
+- Observed Pin `JS` (adjacency map, recursion)
 
-- Each Permutation `JS`
+- Each Permutation `JS` (permutations, Heap)
 
 ## HackerRank Problems
 

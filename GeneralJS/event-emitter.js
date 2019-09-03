@@ -25,6 +25,7 @@ function EventEmitter() {
   this.events = {};
 }
 
+//on and trigger are methods
 EventEmitter.prototype.on = function(funcName, func) {
   if (this.events.hasOwnProperty(funcName)) {
     this.events[funcName].push(func);
@@ -39,24 +40,22 @@ EventEmitter.prototype.trigger = function(funcName, ...args) {
 };
 
 
-
-// class EventEmitter {
-//   constructor() {
-//     this.events = {};
-//   }
-//   ​
-//   on(funcName, func) {
-//     if (this.events.hasOwnProperty(funcName)) {
-//       this.events[funcName].push(func);
-//     } else this.events[funcName] = [func];
-//   }
-//   ​
-//   trigger(funcName, ...args) {
-//     for (let index = 0; index < this.events[funcName].length; index++) {
-//       if (args[index]) this.events[funcName][index](args[index]);
-//       else this.events[funcName][index]();
-//     }
-//   }
-// }
-
-module.exports = EventEmitter;
+//as a class
+class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+  ​
+  on(funcName, func) {
+    if (this.events.hasOwnProperty(funcName)) {
+      this.events[funcName].push(func);
+    } else this.events[funcName] = [func];
+  }
+  ​
+  trigger(funcName, ...args) {
+    for (let index = 0; index < this.events[funcName].length; index++) {
+      if (args[index]) this.events[funcName][index](args[index]);
+      else this.events[funcName][index]();
+    }
+  }
+}
