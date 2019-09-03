@@ -16,18 +16,15 @@ function findInOrderedSet(arr, target, left=0, right=arr.length) {
   if (arr[middle] === target) return true
   //base case (finished searching)
   if (left === right) return false
-  if (arr[middle-1] && arr[middle+1] &&arr[middle-1]<target && arr[middle+1]>target) return false
+  //if target should have been in the middle but isn't
+  if (arr[middle-1] && arr[middle+1] && arr[middle-1]<target && arr[middle+1]>target) return false
+
   //search left inclusive, middle exclusive
-  if (target < arr[middle]) {
-    return findInOrderedSet(arr, target, left, middle-1)
-  }
+  if (target < arr[middle]) return findInOrderedSet(arr, target, left, middle-1)
   //search right inclusive, middle exclusive
   else return findInOrderedSet(arr, target, middle+1, right)
 }
 
 var nums = [1, 4, 6, 7, 9, 17, 45]
 console.log(findInOrderedSet(nums, 8));
-// console.log(findInOrderedSet(nums, 45));
-
-
-module.exports = findInOrderedSet;
+console.log(findInOrderedSet(nums, 45));

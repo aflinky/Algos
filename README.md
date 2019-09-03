@@ -50,12 +50,19 @@
 33 -  Strings Rearrangement `Python`
 
 ## General Algos
+- kth-to-last Node `JS` (LL)
+- Zip Linked Lists `JS` (LL)
+- Reverse Linked List `JS` (LL)
+- Add Linked Lists `JS` (LL)
+- Linked List Cycle `JS` (LL)
+- Delete Dups `JS` (LL)
+- Doubly-Linked List `JS` (LL)
+
 - Fizzbuzz `JS`
 - Draw Stairs `JS`
 - Mode-Mean `JS`
 
-- kth-to-last Node `JS` (LL)
-- Power `JS`
+- Power `JS` (recursion)
 - Reverse in Place `JS`
 - String Rotation `JS`
 
@@ -66,10 +73,7 @@
 
 - Match Word `JS`
 - Highest Product `JS`
-- Zip Linked Lists `JS` (LL)
 - Max Stack `JS`
-
-- Reverse Linked List `JS` (LL)
 - Apple Stock `JS` (pointers)
 - Num to Words `JS`
 - Perm-Palin `JS`
@@ -81,25 +85,22 @@
 - GCD `JS`
 
 - Count Twos `JS`
-- Add Linked Lists `JS` (LL)
 - Super Balanced (BST) `JS`
 - Repeast Number `JS`
 - Merge Ranges `JS`
-- Linked List Cycle `JS` (LL)
 
 - Multiples of 3 or 5 `JS`
 - Max SubArray `JS`
 - Anagram `JS`
-- Delete Dups `JS` (LL)
 - Event-Emitter `JS`
-- Find In Ordered Set `JS`
+- Find In Ordered Set `JS` (Binary Search, recursion)
 
-- Insertion Sort `JS`
+- Bubble Sort `JS` (sort)
+- Insertion Sort `JS` (sort)
+- Merge Sort `JS` (sort, recursion)
 - Unique Number `JS`
 - Get All Products `JS`
-- Doubly-Linked List `JS` (LL)
 - Circle Country `JS`
-- Bubble Sort `JS` (sort)
 
 - Phonebook `JS`
 - New Intersections `JS`

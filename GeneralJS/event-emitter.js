@@ -25,11 +25,13 @@ function EventEmitter() {
   this.events = {};
 }
 
-//on and trigger are methods
+//on and trigger are methods!
+//each funcName can be associated to multiple functions that will be called in succession when triggered
 EventEmitter.prototype.on = function(funcName, func) {
   if (this.events.hasOwnProperty(funcName)) {
     this.events[funcName].push(func);
-  } else this.events[funcName] = [func];
+  }
+  else this.events[funcName] = [func];
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
@@ -49,7 +51,8 @@ class EventEmitter {
   on(funcName, func) {
     if (this.events.hasOwnProperty(funcName)) {
       this.events[funcName].push(func);
-    } else this.events[funcName] = [func];
+    }
+    else this.events[funcName] = [func];
   }
   ​
   trigger(funcName, ...args) {
