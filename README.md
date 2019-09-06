@@ -3,6 +3,8 @@
 ## LeetCode Problems
 - Range Sum of BST `JS` (BST)
 - Count and Say `JS` (Memo)
+- Power Set `JS` (subsets, recursion)
+- Group Anagrams `JS`
 
 ## CodeSignal Arcade Problems
 ### Intro
