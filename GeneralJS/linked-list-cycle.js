@@ -83,6 +83,7 @@ function hasCycle(head) {
 }
 
 //Brent's Cycle Detection Algo
+//https://www.geeksforgeeks.org/brents-cycle-detection-algorithm/
 
 // var node1 = new Node('1');
 // var node2 = node1.next = new Node('2');

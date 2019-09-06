@@ -9,8 +9,6 @@
  * 	binToDec('101') -> 5
  *  binToDec('0101') -> 5
  *
- * Extension:
- * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
 function binToDec(binary) {
