@@ -69,6 +69,7 @@
 - Common Elements `JS` (multiple arguments, dictionary)
 
 - Bin-to-Dec `JS` (binary, conversion)
+- Dec-to-Bin `JS` (binary, conversion)
 
 - Apple Stock `JS` (pointers)
 
@@ -127,10 +128,10 @@
 
 ## CodeWars Problems
 
-> https://app.codesignal.com/profile/amanda_f7
+> https://leetcode.com/aflinky/
 
 > https://www.hackerrank.com/avflinkette
 
-> https://www.codewars.com/users/avf2114
+> https://app.codesignal.com/profile/amanda_f7
 
-> https://leetcode.com/aflinky/
+> https://www.codewars.com/users/avf2114
