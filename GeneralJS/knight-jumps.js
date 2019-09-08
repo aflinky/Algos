@@ -33,22 +33,23 @@
 */
 
 function knightjumps(str) {
-  const knight = [parseInt(str[1]), parseInt(str[3])]
+  const knight = [parseInt(str[1]), parseInt(str[3])] //get number values for knight's position
+  //create a nested array of possible moves ([x, y])
   const moves = [
     [-1, 2], [1, 2],
     [-2, 1], [2, 1],
     [-2, -1], [2, -1],
     [-1, -2], [1, -2]
   ]
+  //reduce moves, checking if they are valid given the knight's position
   const result = (moves.reduce((totalMoves, currMove) => {
     if (knight[0]+currMove[0] > 0 && knight[0]+currMove[0] <= 8 && knight[1]+currMove[1] > 0 && knight[1]+currMove[1] <= 8) ++totalMoves
     return totalMoves
   }, 0))
+  //return the number of possible moves
   return result
 }
 
 // console.log(knightjumps('(4 5)'))
 // console.log(knightjumps('(2 5)'))
 // console.log(knightjumps('(1 1)'))
-
-module.exports = knightjumps;

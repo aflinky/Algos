@@ -16,13 +16,14 @@
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
 
+// LL Node constructor
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function kthToLastNode(k, head) {
-  let links = 0;
+  let links = 0; //instantiate 
   let curr = head ;
   while (curr.next !==null) {
     curr = curr.next ;
@@ -52,5 +53,3 @@ function kthToLastNode(k, head) {
 // c.next = d;
 // d.next = e;
 // console.log(kthToLastNode(6,a))
-
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
