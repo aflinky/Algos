@@ -24,11 +24,11 @@ function insertionSort(array) {
     let j = i-1 //declare j
     while (j >= 0 && temp < array[j]) { //iterate backwards from right behind i until unecessary
       array[j+1] = array[j]; // swap elements
-      j--;
+      j--; //decrement j
     }
-    array[j+1] = temp //reassign temp into its rightful place
+    array[j+1] = temp; //reassign temp into its rightful place
   }
-  return array
+  return array;
 }
 
 console.log(insertionSort([3,6,2,7,-1,3,9,10,1]))

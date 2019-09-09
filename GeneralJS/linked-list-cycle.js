@@ -71,15 +71,15 @@ var Node = function (value) {
 
 // Floyd's cycle-finding algorithm
 function hasCycle(head) {
-  if (!head || !head.next) return false
-  let slow = head;
-  let fast = head.next;
-  while (slow !== fast) {
-    if (!fast.next || !fast.next.next) return false
-    slow = slow.next;
-    fast = fast.next.next;
+  if (!head || !head.next) return false //if no head or only one node in LL, return false
+  let slow = head; //set slow to head
+  let fast = head.next; //set fast to one ahead
+  while (slow !== fast) { //so long as slow and fast aren't pointing at the same node
+    if (!fast.next || !fast.next.next) return false; //if the LL has ended (it reaches a next that is null) return false
+    slow = slow.next; //move slow ahead one
+    fast = fast.next.next; //move fast ahead two
   }
-  return true
+  return true //if slow and fast are pointing to the same node, there is a cycle
 }
 
 //Brent's Cycle Detection Algo
