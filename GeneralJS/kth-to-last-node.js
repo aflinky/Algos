@@ -46,18 +46,17 @@ function Node(val) {
 // }
 
 function kthToLastNode(k, head) {
-  let linksBehind = 0; //instantiate linksBehind to 0 (will wait until it reaches value k and then begin moving)
-  let result;
-  let curr = head ;
+  if (k <= 0) return; //if k is invalid, return undefined
+  let linksBehind = 1; //instantiate linksBehind to 1 (will wait until it reaches value k and then begin moving)
+  let curr = head; //set curr and result to current head
+  let result = head;
   while (curr.next) {
-    console.log(linksBehind, k, curr.value)
-    console.log(linksBehind >= k)
-    if (linksBehind >= k) result = curr.value;
-    ++linksBehind;
-    curr = curr.next;
-    if (result) console.log(result)
+    curr = curr.next; //move curr pointer along
+    if (linksBehind >= k) result = result.next; //if linksBehind has caught up, move result along
+    linksBehind++; //increment linksBehind
   }
-  return result; 
+  if (linksBehind < k) return; //if k > # of links in LL, return undefined
+  return result.value; 
 }
 
 const a = new Node('A');
@@ -69,4 +68,10 @@ a.next = b;
 b.next = c;
 c.next = d;
 d.next = e;
-console.log(kthToLastNode(0,a))
+console.log(kthToLastNode(0,a)) //undef
+console.log(kthToLastNode(1,a)) //E
+console.log(kthToLastNode(2,a)) //D
+console.log(kthToLastNode(3,a)) //C
+console.log(kthToLastNode(4,a)) //B
+console.log(kthToLastNode(5,a)) //A
+console.log(kthToLastNode(6,a)) //undef
