@@ -5,6 +5,7 @@
 - Count and Say `JS` (Memo)
 - Power Set `JS` (subsets, recursion)
 - Group Anagrams `JS`
+- Fruit Into Baskets
 
 ## CodeSignal Arcade Problems
 ### Intro
@@ -101,7 +102,6 @@
 - Stack-Queue `JS`
 - Two Sum `JS`
 
-
 - Count Twos `JS`
 
 - Repeast Number `JS`
@@ -122,6 +122,7 @@
 - Missing Number `JS`
 - Merge Array `JS`
 - Apply It `JS`
+- Spiral Corners `JS`
 
 
 ## HackerRank Problems
