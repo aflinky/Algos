@@ -5,7 +5,7 @@
 - Count and Say `JS` (Memo)
 - Power Set `JS` (subsets, recursion)
 - Group Anagrams `JS`
-- Fruit Into Baskets
+- Fruit Into Baskets `JS`
 
 ## CodeSignal Arcade Problems
 ### Intro
