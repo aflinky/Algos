@@ -53,64 +53,56 @@
 - Linked List Cycle `JS` (LL, FLoyd, Brent)
 - Delete Dups `JS` (LL)
 - Doubly-Linked List `JS` (LL)
-
+<br/><br/>
 - Bubble Sort `JS` (sort)
 - Insertion Sort `JS` (sort)
 - Merge Sort `JS` (sort, recursion)
-
+<br/><br/>
 - Observed Pin `JS` (adjacency map, recursion)
 - Find In Ordered Set `JS` (Binary Search, recursion)
 - Count Stairs `JS` (memo, fibonacci, recursion)
 - Power `JS` (recursion)
-
+<br/><br/>
 - Each Permutation `JS` (permutations, Heap)
-
-- Knapsack `JS` (dynamic)
-
+<br/><br/>
+- Knapsack `JS` (dynamic bottom up)
+<br/><br/>
 - Common Elements `JS` (multiple arguments, dictionary)
-
+<br/><br/>
 - Bin-to-Dec `JS` (binary, conversion)
 - Dec-to-Bin `JS` (binary, conversion)
-
+<br/><br/>
 - Apple Stock `JS` (pointers)
-
+<br/><br/>
 - Super Balanced (BST) `JS`
 - Valid BST `JS` (BST)
-
+<br/><br/>
 - GCD `JS` (Euclid)
-
+<br/><br/>
 - Balanced Parens `JS` (stack)
 - Max Stack `JS` (stack)
-
+<br/><br/>
 - Fizzbuzz `JS`
 - Draw Stairs `JS`
 - Mode-Mean `JS`
 - Reverse in Place `JS`
 - String Rotation `JS`
-
 - Roman Numeral `JS`
 - Subset Sum `JS`
-
 - Match Word `JS`
 - Highest Product `JS`
 - Multiples of 3 or 5 `JS`
-
 - Num to Words `JS`
 - Perm-Palin `JS`
-
 - Rotate Grid `JS`
 - Stack-Queue `JS`
 - Two Sum `JS`
-
 - Count Twos `JS`
-
-- Repeast Number `JS`
+- Repeat Number `JS`
 - Merge Ranges `JS`
-
 - Max SubArray `JS`
 - Anagram `JS`
 - Event-Emitter `JS`
-
 - Unique Number `JS`
 - Get All Products `JS`
 - Circle Country `JS`
