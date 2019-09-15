@@ -41,21 +41,21 @@
 function spiral(x, y, N) {
   //edge cases N <= 0
   if (N <= 0) return;
-  for (let i=1; i<=N; i++) {
-      let diff = Math.ceil(i/4)
-      
-      if (i%4 === 1) {
-          console.log(`(${x+diff}, ${y-(diff-1)})`)
-      }
-      else if (i%4 === 2) {
-          console.log(`(${x+diff}, ${y+(diff)})`)
-      }
-      else if (i%4 === 3) {
-          console.log(`(${x-diff}, ${y+(diff)})`)
-      }
-      else if (i%4 === 0) {
-          console.log(`(${x-diff}, ${y-(diff)})`)
-      }
+  for (let i = 1; i <= N; i++) {
+    let diff = Math.ceil(i / 4)
+
+    if (i % 4 === 1) {
+      console.log(`(${x + diff}, ${y - (diff - 1)})`)
+    }
+    else if (i % 4 === 2) {
+      console.log(`(${x + diff}, ${y + (diff)})`)
+    }
+    else if (i % 4 === 3) {
+      console.log(`(${x - diff}, ${y + (diff)})`)
+    }
+    else if (i % 4 === 0) {
+      console.log(`(${x - diff}, ${y - (diff)})`)
+    }
   }
 }
 
