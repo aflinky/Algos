@@ -6,7 +6,6 @@
 // Best Results of 3 tests: 
 // Best speed: 100% 40ms
 // Best memory 92.4% 34.9MB
-// Thanks to Will for regex inspo!
 
 var cache = {1: "1"}; //memoize for optimization
 var countAndSay = function(n) {

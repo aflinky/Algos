@@ -5,7 +5,8 @@
  * @return {number}
  * Runtime: 316 ms, faster than 19.65% of JavaScript online submissions for Fruit Into Baskets.
  * Memory Usage: 51.3 MB, less than 100.00% of JavaScript online submissions for Fruit Into Baskets.
- */
+*/
+
 var totalFruit = function (tree) {
   const baskets = {};
   let maxFruits = 0;
