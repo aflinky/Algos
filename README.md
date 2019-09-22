@@ -83,6 +83,8 @@
 - Balanced Parens `JS` (stack)
 - Max Stack `JS` (stack)
 <br/><br/>
+- Rock Paper Scissors `JS` (permutations)
+<br/><br/>
 - Fizzbuzz `JS`
 - Draw Stairs `JS`
 - Mode-Mean `JS`
