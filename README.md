@@ -4,6 +4,7 @@
 - Range Sum of BST `JS` (BST)
 - Count and Say `JS` (Memo)
 - Power Set `JS` (subsets, recursion)
+- Valid Number `JS` (regex)
 - Group Anagrams `JS`
 - Fruit Into Baskets `JS`
 
