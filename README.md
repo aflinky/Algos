@@ -121,6 +121,11 @@
 - Merge Array `JS`
 - Apply It `JS`
 - Spiral Corners `JS`
+- Chunk it Up `JS`
+- Lockdown `JS`(returns a function)
+- Array Dimensions `JS`(recursion)
+- Max By `JS`
+- Chunk `JS`
 
 
 ## HackerRank Problems
