@@ -58,6 +58,7 @@
 - Bubble Sort `JS` (sort)
 - Insertion Sort `JS` (sort)
 - Merge Sort `JS` (sort, recursion)
+- Quick Sort `JS` (sort, recursion)
 <br/><br/>
 - Observed Pin `JS` (adjacency map, recursion)
 - Find In Ordered Set `JS` (Binary Search, recursion)
@@ -83,7 +84,9 @@
 - Balanced Parens `JS` (stack)
 - Max Stack `JS` (stack)
 <br/><br/>
-- Rock Paper Scissors `JS` (permutations)
+- Rock Paper Scissors `JS` (permutations, recursion)
+<br/><br/>
+- Med Path `JS` (recursion)
 <br/><br/>
 - Fizzbuzz `JS`
 - Draw Stairs `JS`
