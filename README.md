@@ -5,6 +5,7 @@
 - Count and Say `JS` (Memo)
 - Power Set `JS` (subsets, recursion)
 - Valid Number `JS` (regex)
+- Coin Change `JS` (combinations, dynamic bottom up)
 - Group Anagrams `JS`
 - Fruit Into Baskets `JS`
 
