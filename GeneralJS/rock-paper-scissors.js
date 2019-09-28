@@ -15,7 +15,7 @@
  * [r, r, p, r] [r, r, p, p] [r, r, p, s]
  * [r, r, s, r] [r, r, s, p] [r, r, s, s]
  * []
- */
+*/
 
 function rockPaperScissors(num, appending) {
   const throws = [['rock'], ['paper'], ['scissors']]
