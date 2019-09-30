@@ -20,5 +20,3 @@ function twoSum(arr, n) {
 // console.log(twoSum([7], 10))
 // console.log(twoSum([1,3,4,7], 10))
 // console.log(twoSum([1,3,4,7], 16))
-
-module.exports = twoSum;
