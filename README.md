@@ -8,6 +8,7 @@
 - Coin Change `JS` (combinations, dynamic bottom up)
 - Group Anagrams `JS`
 - Water Container `JS`
+- First Missing Positive `JS`
 - Fruit Into Baskets `JS`
 
 ## CodeSignal Arcade Problems
