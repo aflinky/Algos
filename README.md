@@ -7,6 +7,7 @@
 - Valid Number `JS` (regex)
 - Coin Change `JS` (combinations, dynamic bottom up)
 - Group Anagrams `JS`
+- Water Container `JS`
 - Fruit Into Baskets `JS`
 
 ## CodeSignal Arcade Problems
