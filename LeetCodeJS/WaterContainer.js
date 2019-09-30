@@ -25,3 +25,4 @@ console.log(maxArea([5, 4])) //4
 console.log(maxArea([1, 3, 2, 5, 25, 24, 5])) //24
 console.log(maxArea([1, 2, 4, 3])) //4
 console.log(maxArea([1, 8, 8, 1, 1, 1])) //8
+console.log(maxArea([1, 1, 1, 1, 1, 1])) //5
