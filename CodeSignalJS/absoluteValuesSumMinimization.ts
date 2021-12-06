@@ -15,8 +15,8 @@
 // Ex a = [2, 3] => 2
 // Because there is a tie, the smallest x between x = 2 and x = 3 is the answer
 
-function absoluteValuesSumMinimization(a) {
-    const diffs = [];
+function absoluteValuesSumMinimization(a: number[]) {
+  const diffs = [];
     for (let x of a) {
         let sum = 0
         for (let i=0; i<a.length; i++) {
@@ -26,3 +26,5 @@ function absoluteValuesSumMinimization(a) {
     }
     return a[diffs.indexOf(Math.min.apply(Math, diffs))]
 }
+
+module.exports = absoluteValuesSumMinimization;
