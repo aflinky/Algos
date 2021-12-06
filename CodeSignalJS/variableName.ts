@@ -6,10 +6,12 @@
 // name = "qq-q" => false
 // name = "2w2" => false
 
-function variableName(name) {
-    if ((Number(name[0])) || name[0]==="0") return false
-    
-    const isAlnum = ch => ch.match(/^[a-z0-9_]+$/i) !== null
+function variableName(name: string) {
+  if (!name || (Number(name[0])) || name[0] === "0") return false
+  
+  const isAlnum = ch => ch.match(/^[a-z0-9_]+$/i) !== null
 
-    return isAlnum(name)
+  return isAlnum(name)
 }
+
+module.exports = variableName;
