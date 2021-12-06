@@ -4,7 +4,7 @@
   "description": "## LeetCode Problems - Range Sum of BST `JS` (BST) - Count and Say `JS` (Memo) - Power Set `JS` (subsets, recursion) - Valid Number `JS` (regex) - Coin Change `JS` (combinations, dynamic bottom up) - Group Anagrams `JS` - Water Container `JS` - First Missing Positive `JS` - Fruit Into Baskets `JS`",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose false"
+    "test": "jest --verbose"
   },
   "repository": {
     "type": "git",
