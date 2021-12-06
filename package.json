@@ -1,0 +1,29 @@
+{
+  "name": "Algos",
+  "version": "1.0.0",
+  "description": "## LeetCode Problems - Range Sum of BST `JS` (BST) - Count and Say `JS` (Memo) - Power Set `JS` (subsets, recursion) - Valid Number `JS` (regex) - Coin Change `JS` (combinations, dynamic bottom up) - Group Anagrams `JS` - Water Container `JS` - First Missing Positive `JS` - Fruit Into Baskets `JS`",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose false"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aflinky/Algos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aflinky/Algos/issues"
+  },
+  "homepage": "https://github.com/aflinky/Algos#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/jest": "^27.0.3",
+    "babel-jest": "^27.4.2",
+    "jest": "^27.4.3",
+    "typescript": "^4.5.2"
+  }
+}
