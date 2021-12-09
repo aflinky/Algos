@@ -20,4 +20,12 @@ function factorial(num: number) {
   return memo[num];
 };
 
+// function factorial(num: number) {
+//   let result = 1;
+//   while (num > 0) {
+//     result *= num--;
+//   }
+//   return result;
+// }
+
 module.exports = factorial;
