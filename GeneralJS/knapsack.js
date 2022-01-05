@@ -10,7 +10,7 @@
 */
 
 // *****************************
-// Brute Force
+// Dynamic Programming (Top Down)
 //
 // Time Complexity: O(2^n) - Exponential 
 // Space Complexity: O(n) - Linear (depth of tree)
@@ -36,7 +36,8 @@ const solveKnapsack = (items, weightAvailable, index = 0, accValue = 0) => {
 };
 
 /**
- * Walkthrough with example
+ * Top Down Walkthrough Test Case 1
+ * 
  * items: [
  *    { weight: 1, value: 3 },
  *    { weight: 2, value: 4 },
