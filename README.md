@@ -142,3 +142,9 @@
 > https://app.codesignal.com/profile/amanda_f7
 
 > https://www.codewars.com/users/avf2114
+
+## Testing
+
+Run all test suites: `npm test`
+
+Run a specifc test suite: `npm test <name of test>` ex. `npm test knapsack`
