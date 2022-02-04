@@ -1,5 +1,7 @@
-// Write a function that sorts an array using the insertion sort algorithm.
+// Time Complexity: O(n^2)
+// Space Complexity: O(1)
 
+// Write a function that sorts an array using the insertion sort algorithm.
 // https://en.wikipedia.org/wiki/Insertion_sort
 
 // with inner for loop
@@ -31,5 +33,4 @@ function insertionSort(array) {
   return array;
 }
 
-console.log(insertionSort([3,6,2,7,-1,3,9,10,1]))
-console.log(insertionSort([3,6,2]))
+module.exports = insertionSort;

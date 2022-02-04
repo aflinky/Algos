@@ -20,5 +20,4 @@ function quickSort(arr) {
   return quickSort(arr.slice(0, left)).concat(arr[left]).concat(quickSort(arr.slice(right+1, arr.length)))
 }
 
-let arr = [3,0,1,8,7,2,5,4,9,6]
-console.log(quickSort(arr))
+module.exports = quickSort;
