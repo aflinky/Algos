@@ -124,37 +124,37 @@ const solveKnapsack = (items, weightAvailable, index = 0, accValue = 0) => {
 // Space Complexity: O(n * w)
 // *****************************
 
-const solveKnapsack = (items, weightAvailable) => {
-  // Idea is to create an n x w matrix, where n is length of items array and w is weightAvailable
-  // Call this matrix M. M[i][j] represents the max value with i items and j weightAvailable.
-  // M[i][j] = max(M[i - 1][j], V[i] + M[i - 1][j - W[i]])
-  const table = [];
-  const n = items.length;
+// const solveKnapsack = (items, weightAvailable) => {
+//   // Idea is to create an n x w matrix, where n is length of items array and w is weightAvailable
+//   // Call this matrix M. M[i][j] represents the max value with i items and j weightAvailable.
+//   // M[i][j] = max(M[i - 1][j], V[i] + M[i - 1][j - W[i]])
+//   const table = [];
+//   const n = items.length;
 
-  // Build n x w matrix
-  // Populate first row and column with zeros
-  // If we have zero items, we can't pick up any items
-  // If the amount of weight available in our bag is zero, then we can't pick up any items (assuming there are no valuable weightless items)
-  for (let i = 0; i <= n; i += 1) {
-    table.push(new Array(weightAvailable + 1).fill(0));
-  }
+//   // Build n x w matrix
+//   // Populate first row and column with zeros
+//   // If we have zero items, we can't pick up any items
+//   // If the amount of weight available in our bag is zero, then we can't pick up any items (assuming there are no valuable weightless items)
+//   for (let i = 0; i <= n; i += 1) {
+//     table.push(new Array(weightAvailable + 1).fill(0));
+//   }
 
-  // Build table bottoms-up using the following formula: M[i][j] = max(M[i - 1][j], V[i] + M[i - 1][j - W[i]])
-  // Idea is you have two choices as you increase the number of items: Take it / Leave it
-  // M[i][j] (max value given choice of first i items, at weight j)
-  // If you take it, then we add the value of the item to the max value of having i-1 options with weight capacity j - W[i]
-  // If you leave it, then the max value is the max value of having i-1 options with the same weight capacity
-  // value (of curr item) + M[i-1][j-weight] (max value from before when there is still room) = if you do take the item
-  // M[i-1][j] (i-1 items, at weight j) = if you don't take the item
-  for (let i = 1; i <= n; i += 1) {
-    const { weight, value } = items[i - 1];
-    for (let j = 1; j <= weightAvailable; j += 1) {
-      if (weight > j) table[i][j] = table[i - 1][j];
-      else table[i][j] = Math.max(table[i - 1][j], value + table[i - 1][j - weight]);
-    }
-  }
-  // Return the last element of the matrix
-  return table[n][weightAvailable];
-};
+//   // Build table bottoms-up using the following formula: M[i][j] = max(M[i - 1][j], V[i] + M[i - 1][j - W[i]])
+//   // Idea is you have two choices as you increase the number of items: Take it / Leave it
+//   // M[i][j] (max value given choice of first i items, at weight j)
+//   // If you take it, then we add the value of the item to the max value of having i-1 options with weight capacity j - W[i]
+//   // If you leave it, then the max value is the max value of having i-1 options with the same weight capacity
+//   // value (of curr item) + M[i-1][j-weight] (max value from before when there is still room) = if you do take the item
+//   // M[i-1][j] (i-1 items, at weight j) = if you don't take the item
+//   for (let i = 1; i <= n; i += 1) {
+//     const { weight, value } = items[i - 1];
+//     for (let j = 1; j <= weightAvailable; j += 1) {
+//       if (weight > j) table[i][j] = table[i - 1][j];
+//       else table[i][j] = Math.max(table[i - 1][j], value + table[i - 1][j - weight]);
+//     }
+//   }
+//   // Return the last element of the matrix
+//   return table[n][weightAvailable];
+// };
 
 module.exports = solveKnapsack;
