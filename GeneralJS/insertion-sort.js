@@ -20,17 +20,6 @@
 // }
 
 // with inner while loop
-function insertionSort(array) {
-  for (let i=1; i<array.length; i++) { //iterate forwards through whole array
-    let temp = array[i]; //declare temp
-    let j = i-1 //declare j
-    while (j >= 0 && temp < array[j]) { //iterate backwards from right behind i until unecessary
-      array[j+1] = array[j]; // swap elements
-      j--; //decrement j
-    }
-    array[j+1] = temp; //reassign temp into its rightful place
-  }
-  return array;
-}
+function insertionSort(array) {}
 
 module.exports = insertionSort;
