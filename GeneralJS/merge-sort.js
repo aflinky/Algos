@@ -1,5 +1,8 @@
+// Time Complexity: O(nlogn)
+// Space Complexity: O(n)
+
 function mergeSort(arr) {
-  if (arr.length < 2) { //base case - if array length = 1 => arr
+  if (arr.length < 2) { //base case - if array length = 1 or 0 => arr
     return arr;
   }
 
@@ -17,5 +20,5 @@ function merge(arr1, arr2) { //helper merge function
   }
   return result.concat(arr1.length ? arr1 : arr2); //concat leftovers
 }
-console.log(mergeSort([7, 2, 3, 3, 3, 2, 8, 9, 1, 20, 5, 100, -20]));
-console.log(mergeSort([7, 2, 4, 1, 8, 3, 9, 6]));
+
+module.exports = mergeSort;
