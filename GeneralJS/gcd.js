@@ -50,7 +50,3 @@ function gcd(a, b) {
 // a = 8, b = 10
 // => gcd(10, 8 % 10) = gcd(10, 8)
 // ^^^ rearranges the smallest and largest
-
-// console.log(gcd(10, 8))
-// console.log(gcd(147, 105))
-// console.log(gcd(10, 9))
