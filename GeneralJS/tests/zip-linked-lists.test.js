@@ -23,7 +23,6 @@ describe('Zip Linked Lists', () => {
     const zipped = func(list1, list2);
     let curr = zipped;
     for (let i = 0; i < values.length; i++) {
-      console.log('curr', curr.value, values[i])
       expect(curr.value).toBe(values[i]);
       curr = curr.next;
     }
@@ -37,7 +36,6 @@ describe('Zip Linked Lists', () => {
     const zipped = func(list1, list2);
     let curr = zipped;
     for (let i = 0; i < values.length; i++) {
-      console.log('curr', curr.value, values[i])
       expect(curr.value).toBe(values[i]);
       curr = curr.next;
     }
