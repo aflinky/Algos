@@ -143,6 +143,21 @@
 
 > https://www.codewars.com/users/avf2114
 
+
+## Getting Started
+
+1. Clone repo
+1. `npm i` to install dependencies
+1. `git checkout -b <your name or whatever you want to name your branch>` to make sure the master branch stays clean (if I set up the repo perms correctly you should not be able to push to master anyway)
+
+## Doing Algos
+
+The `master` branch is a mixture of solved and blank slate problems -- I'm currently in the process of moving answers into the `answer-branch` branch. Blank slate algos should all have unit tests for you to test your code.
+
+If you are looking at my `answer-branch` beware not everything is neat or organized
+
+Complete all algos on your own branch to keep track of your work
+
 ## Testing
 
 Run all test suites: `npm test`
