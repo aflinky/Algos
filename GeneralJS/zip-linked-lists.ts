@@ -5,10 +5,7 @@
  * BONUS: Do this in place
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
+require('../utils/linkedLists');
 
 function zip(l1, l2) {
   if (l1 === undefined) { return l2 }
@@ -67,4 +64,4 @@ function zip(l1, l2) {
 //   meowza = meowza.next
 // }
 
-module.exports = { Node: Node, zip: zip };
+module.exports = zip;
