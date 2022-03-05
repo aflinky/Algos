@@ -25,7 +25,7 @@ describe('Zip Linked Lists', () => {
     for (let i = 0; i < values.length; i++) {
       expect(curr.value).toBe(values[i]);
       curr = curr.next;
-    }
+    };
   });
   
   test('Test two', () => {
@@ -38,6 +38,6 @@ describe('Zip Linked Lists', () => {
     for (let i = 0; i < values.length; i++) {
       expect(curr.value).toBe(values[i]);
       curr = curr.next;
-    }
+    };
   });
 })
