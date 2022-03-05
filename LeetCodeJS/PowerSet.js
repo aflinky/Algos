@@ -16,6 +16,34 @@
   Input: nums = [0]
   Output: [[],[0]]
  */
-var subsets = function(nums) {};
-
-module.exports = subsets;
+  var subsets = function(nums) {
+    if (nums.length === 1) return [nums, []];
+    let results = [];
+    let subCombos = subsets(nums.slice(1));
+    subCombos.forEach(x => {
+      results.push([nums[0]].concat(x));
+      results.push(x);
+      console.log('results', results)
+    })
+    return results;
+  };
+  
+  /**
+   * subsets([1, 2, 3])
+   * results = []
+   * subCombos = subsets([2, 3])
+   *  results = []
+   *  subCombos = subsets([3]) => [[3], []]
+   *    return [[3], []]
+   *  ([[3], []]).forEach
+   *    first pushes = [[2, 3], [3]]
+   *    second pushes = [[2], []]
+   *    results = [[2, 3], [3], [2], []]
+   * [[2, 3], [3], [2], []].forEach
+   *    first pushes = [[1, 2, 3], [2, 3]]
+   *    second pushes = [[1, 3], [3]]
+   *    third pushes = [[1, 2], [2]]
+   * return [[1, 2, 3], [2, 3], [1, 3], [3], [1, 2], [2], [1], []]
+   */
+  
+  module.exports = subsets;
