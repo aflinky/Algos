@@ -1,9 +1,9 @@
-function LLNode(val) {
+export function LLNode(val) {
   this.value = val;
   this.next = null;
 }
 
-function makeLL(arrOfValues) {
+export function makeLL(arrOfValues) {
   if (!arrOfValues.length) return null;
   const linkedList = new LLNode(arrOfValues[0]);
   let curr = linkedList;
@@ -13,15 +13,5 @@ function makeLL(arrOfValues) {
     curr = curr.next;
     i++;
   }
-
-  // console.log('now looking');
-  // let meow = linkedList;
-  // console.log(`${meow.value}`);
-  // while (meow.next) {
-  //   meow = meow.next;
-  //   console.log(`-> ${meow.value}`);
-  // }
   return linkedList;
 }
-
-module.exports = { LLNode, makeLL };
