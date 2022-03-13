@@ -149,6 +149,7 @@
 1. Clone repo
 1. `npm i` to install dependencies
 1. `git checkout -b <your name or whatever you want to name your branch>` to make sure the master branch stays clean (if I set up the repo perms correctly you should not be able to push to master anyway)
+1. Send me your github handle so I can add you to the repo and you can push to a branch
 
 ## Doing Algos
 
