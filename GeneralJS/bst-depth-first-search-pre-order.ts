@@ -40,7 +40,7 @@ import { BST } from "../utils/binarySearchTree";
 
 // Solution 3
 // Pass along result variable
-function depthFirstPreOrder(tree: BST, result = []): number[] {  
+export default function depthFirstPreOrder(tree: BST, result = []): number[] {  
   if (tree.value) result.push(tree.value);
 
   if (tree.left) {
