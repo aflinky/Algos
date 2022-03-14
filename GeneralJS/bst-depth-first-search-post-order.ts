@@ -1,6 +1,6 @@
 /**
- * BST Depth First Search (Pre-order)
- * top, left, right
+ * BST Depth First Search (Post-order)
+ * left, right, top
  * https://dev.to/mattdclarke/implement-depth-first-search-in-a-binary-search-tree-with-javascript-1p96
  */
 
