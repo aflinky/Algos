@@ -29,17 +29,24 @@
 
 import { BST } from "../utils/binarySearchTree";
 
-var rangeSumBST = function(root: BST, L: number, R: number) {
-  if (root == null) return 0;
-  if (root.value < L) { //if node.value < L, we don't need to add it OR check its left
-      return rangeSumBST(root.right, L, R)
-  }
-  else if (root.value > R) { //if node.value > R, we don't need to add it OR check its right
-      return rangeSumBST(root.left, L, R)
-  }
-  else { //if the root.value is in range, keep and check left and right
-      return root.value + rangeSumBST(root.left, L, R) + rangeSumBST(root.right, L, R)
-  }
+var rangeSumBST = function (root: BST, L: number, R: number): number {
+  // Eval curr value
+  let curr = inRange(root.value, L, R) ? root.value : 0;
+
+  // No branches
+  if (!root.left && !root.left) return curr;
+
+  // Branches
+  const left = root.left ? rangeSumBST(root.left, L, R) : 0;
+  const right = root.right ? rangeSumBST(root.right, L, R) : 0;
+
+  // Sum
+  return curr + left + right;
 };
+
+function inRange(num: number, L: number, R: number): boolean {
+  if (L <= num && num <= R) return true;
+  else return false;
+}
 
 module.exports = rangeSumBST;
