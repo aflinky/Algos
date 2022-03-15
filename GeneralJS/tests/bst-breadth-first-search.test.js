@@ -1,5 +1,5 @@
 const { BST } = require('../../utils/binarySearchTree');
-const func = require('../bst-depth-first-search-in-order');
+const func = require('../bst-breadth-first-search');
 
 describe('BST Depth First Search (In-Order)', () => {
   test('Test one', () => {
