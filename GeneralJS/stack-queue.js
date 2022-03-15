@@ -1,45 +1,32 @@
 /**
- * Create a stack.Then create a queue using two stacks.
+ * Create a queue using two stacks
  */
 
-function Stack() {
-    this.storage = [];
-    this.index = 0;
-    this.push = function(val) {
-        this.storage[this.index] = val;
-        ++this.index;
-        return this.index;
-    }
-    this.pop = function() {
-        if (this.index === 0) return 0;
-        --this.index;
-        const removed = this.storage[this.index];
-        this.storage.length = this.index;
-        return removed
-    }
-}
+const { Stack } = require("../utils/stack");
 
 /**
 * Queue Class
 */
 function Queue() {
-    this.stack1 = new Stack();
-    this.stack2 = new Stack();
-    this.enqueue = function(val) {
-        this.stack1.push(val);
+  this.stack1 = new Stack();
+  this.stack2 = new Stack();
+
+  this.enqueue = function (val) {
+    this.stack1.push(val);
+  }
+  
+  this.dequeue = function () {
+    if (this.stack1.index === 0) return;
+    while (this.stack1.index > 0) {
+      this.stack2.push(this.stack1.pop())
     }
-    this.dequeue = function() {
-        if (this.stack1.index === 0) return;
-        while (this.stack1.index>0) {
-            this.stack2.push(this.stack1.pop())
-        }
-        const temp = this.stack2.pop();
-        while (this.stack2.index>0) {
-            this.stack1.push(this.stack2.pop())
-        }
-        console.log(temp)
-        return temp;
+    const temp = this.stack2.pop();
+    while (this.stack2.index > 0) {
+      this.stack1.push(this.stack2.pop())
     }
+    console.log(temp)
+    return temp;
+  }
 }
 
 // const stacky = new Stack;
@@ -85,4 +72,4 @@ function Queue() {
 // console.log(stacky)
 // console.log(stacky)
 
-module.exports = {Stack: Stack, Queue: Queue};
+module.exports = { Stack: Stack, Queue: Queue };
