@@ -17,20 +17,8 @@
 // https://leetcode.com/problems/two-sum-iv-input-is-a-bst/
 
 import { BST } from "../utils/binarySearchTree";
-import depthFirstPreOrder from "../generalJS/bst-depth-first-search-pre-order";
 
 var twoSumBST = function (root: BST, target: number): boolean {
-  const values = depthFirstPreOrder(root);
-  const dictionary = {};
-  for (let i = 0; i < values.length; i++) {
-    // Check for match
-    const match = target - values[i];
-    if (dictionary[match]) return true;
-
-    // Add to dictionary
-    if (!dictionary[values[i]]) dictionary[values[i]] = 1;
-  }
-  return false;
 }
 
 module.exports = twoSumBST;

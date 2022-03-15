@@ -11,19 +11,6 @@
 // parseMolecule(methanol); // return {C: 1, H: 4, O: 1}
 
 function parseMolecule(str) {
-  // regex looks for pattern that is UPPERCASE + number {0,} => []
-  // iterate through the matches and splice out the number (if no number, 1)
-  // throw into an obj
-  const pieces = str.match(/([A-Z][a-z]*\d*)/g);
-  const atomDictionary = {};
-  pieces.forEach(item => {
-      const atom = item.match(/([A-Z]+)/gi);
-      let quantity = item.match(/(\d+)/g);
-      quantity = !quantity ? 1 : parseInt(quantity[0]);
-      if (atomDictionary[atom]) atomDictionary[atom] += quantity;
-      else atomDictionary[atom] = quantity;
-  });
-  return atomDictionary;
 }
 
 

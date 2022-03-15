@@ -11,35 +11,6 @@
 // Time: O(N*M) (I think?)
 // Space: O(N + M) (I think?)
 function radioRange(listeners: number[], towers: number[]): number {
-  // Sort the arrays
-  listeners = listeners.sort((a, b) => a - b);
-  towers = towers.sort((a, b) => a - b);
-
-
-  let maxRange = 0;
-  // Let l = index of listeners
-  let l = 0;
-  for (let t = 0; t < towers.length; t++) {
-    // Find the first l with a coordinate bigger (or the end of the listeners)
-    while (listeners[l] < towers[t] && l < listeners.length) {
-      // Must check if next element exists, if not, break
-      if (!isNaN(listeners[l + 1])) l++;
-      else break;
-    }
-
-    let currRange;
-    // If first or last listener, nothing to compare
-    if (l === 0 || l === listeners.length - 1) currRange = Math.abs(listeners[l] - towers[t]);
-    // Else must compare first biggest and first smallest
-    // & take smaller value
-    else currRange = Math.min(Math.abs(listeners[l] - towers[t]), Math.abs(listeners[l - 1] - towers[t]));
-    
-    // Compare to current maxRange
-    // & take larger value
-    maxRange = Math.max(maxRange, currRange);
-  }
-
-  return maxRange;
 }
 
 module.exports = radioRange;
