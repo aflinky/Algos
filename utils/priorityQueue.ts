@@ -4,7 +4,7 @@ export interface PQueueElement {
 }
 
 export interface PQueue {
-  items: any[],
+  items: PQueueElement[],
 }
 
 export class PQueueElement {
@@ -14,7 +14,9 @@ export class PQueueElement {
   }
 }
 
-
+/**
+ * Data Structure to hold and arrange values in order of priority
+ */
 export class PQueue {
   constructor() {
     this.items = [];
@@ -22,7 +24,8 @@ export class PQueue {
 
   /**
    * Add an item to the priority queue
-   * priority ascending
+   * Priority ascending
+   * When priority matches, add afterwards
    */
   enqueue(item, priority) {
     const element = new PQueueElement(item, priority);
