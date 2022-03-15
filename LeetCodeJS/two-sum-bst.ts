@@ -19,17 +19,42 @@
 import { BST } from "../utils/binarySearchTree";
 import depthFirstPreOrder from "../generalJS/bst-depth-first-search-pre-order";
 
-var twoSumBST = function (root: BST, target: number): boolean {
-  const values = depthFirstPreOrder(root);
-  const dictionary = {};
-  for (let i = 0; i < values.length; i++) {
-    // Check for match
-    const match = target - values[i];
-    if (dictionary[match]) return true;
+// Solution 1
+// Using predefined depth first search
+// var twoSumBST = function (root: BST, target: number): boolean {
+//   const values = depthFirstPreOrder(root);
+//   const dictionary = {};
+//   for (let i = 0; i < values.length; i++) {
+//     // Check for match
+//     const match = target - values[i];
+//     if (dictionary[match]) return true;
 
-    // Add to dictionary
-    if (!dictionary[values[i]]) dictionary[values[i]] = 1;
+//     // Add to dictionary
+//     if (!dictionary[values[i]]) dictionary[values[i]] = 1;
+//   }
+//   return false;
+// }
+
+// Solution 2
+// Moving through depth first search with dictionary
+// Avg case scenario we won't have to traverse the entire tree
+var twoSumBST = function (root: BST, target: number, dictionary = {}): boolean {
+  if (root.value) {
+    const match = target - root.value;
+    if (dictionary[match]) return true;
+    else dictionary[root.value] = 1;
   }
+
+  if (root.left) {
+    const left = twoSumBST(root.left, target, dictionary);
+    if (left) return true;
+  }
+
+  if (root.right) {
+    const right = twoSumBST(root.right, target, dictionary);
+    if (right) return true;
+  }
+  
   return false;
 }
 
