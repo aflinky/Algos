@@ -18,7 +18,7 @@ const states = [
   {
     stateId: 3,
     state: 'Colorado',
-    stateCode: 'CA',
+    stateCode: 'CO',
   },
 ];
 
@@ -84,7 +84,7 @@ const orders = [
   {
     orderId: 9,
     stateCode: 'CO',
-    productId: 1,
+    productId: 3,
   },
 ];
 

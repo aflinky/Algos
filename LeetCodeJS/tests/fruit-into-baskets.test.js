@@ -13,4 +13,8 @@ describe('Fruit into Baskets', () => {
   test('[1,2,3,2,2]', () => {
     expect(func([1,2,3,2,2])).toBe(4);
   });
+  
+  test('[1,2,2,3,2,2]', () => {
+    expect(func([1,2,2,3,2,2])).toBe(5);
+  });
 })
