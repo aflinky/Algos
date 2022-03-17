@@ -1,7 +1,7 @@
 /**
  * Fruit Into Baskets
  * https://leetcode.com/problems/fruit-into-baskets/
- * @param {number[]} tree
+ * @param {number[]} trees
  * @return {number}
  * Runtime: 316 ms, faster than 19.65% of JavaScript online submissions for Fruit Into Baskets.
  * Memory Usage: 51.3 MB, less than 100.00% of JavaScript online submissions for Fruit Into Baskets.
@@ -38,9 +38,11 @@
  * Constraints:
  * 1 <= fruits.length <= 105
  * 0 <= fruits[i] < fruits.length
+ * 
+ * https://anj910.medium.com/leetcode-904-fruit-into-baskets-79780c110c5
 */
 
-function totalFruit(trees) {
+function totalFruit(trees: number[]): number {
   // variables for baskets
   // while we iterate through trees, basket1 should always contain type of trees[i]
   // init basket 1 with trees[0] type
