@@ -1,7 +1,7 @@
 /**
  * Container with Most Water
  * https://leetcode.com/problems/container-with-most-water/
- * @param {number[]} height
+ * @param {number[]} heights
  * @return {number}
  * Runtime: 52 ms, faster than 95.84% of JavaScript online submissions for Container With Most Water.
  * Memory Usage: 35.5 MB, less than 78.79% of JavaScript online submissions for Container With Most Water.
