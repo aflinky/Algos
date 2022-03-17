@@ -24,6 +24,8 @@
  * -109 <= nums[i] <= 109
  * -109 <= target <= 109
  * Only one valid answer exists.
+ * 
+ * (also see two-sum)
  */
 
 function twoSum(arr: number[], n: number): number[] {
