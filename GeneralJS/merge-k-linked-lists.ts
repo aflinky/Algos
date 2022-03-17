@@ -4,7 +4,7 @@
  */
 
 import { LLNode } from '../utils/linkedLists';
-import { PQueue, PQueueElement } from '../utils/priorityQueue';
+import { PQueue } from '../utils/priorityQueue';
 
 // New LL + Brute force
 // Time complexity: O(k^2 * n) (I think???)

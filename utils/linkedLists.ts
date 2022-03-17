@@ -1,9 +1,16 @@
-export function LLNode(val) {
-  this.value = val;
-  this.next = null;
+export interface LLNode {
+  value: any,
+  next?: LLNode,
 }
 
-export function makeLL(arrOfValues) {
+export class LLNode {
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
+}
+
+export function makeLLFromArray(arrOfValues: any[]) {
   if (!arrOfValues.length) return null;
   const linkedList = new LLNode(arrOfValues[0]);
   let curr = linkedList;
