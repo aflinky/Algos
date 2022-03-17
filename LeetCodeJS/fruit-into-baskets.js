@@ -40,6 +40,93 @@
  * 0 <= fruits[i] < fruits.length
 */
 
-const totalFruit = function (tree) {};
+function totalFruit(trees) {
+  // variables for baskets
+  // while we iterate through trees, basket1 should always contain type of trees[i]
+  // init basket 1 with trees[0] type
+  const basket1 = {
+    type: trees[0],
+    count: 1,
+  };
+  const basket2 = {
+    type: undefined,
+    count: 0,
+  };
+
+  // variable to keep track of consecutive type1 fruits
+  // init to 1 because we are starting with first fruit
+  let type1Streak = 1;
+  
+  // variable to keep track of max
+  let maxFruits = 0;
+
+  // variable to keep track of a current max
+  // init to 1 because we are starting with first fruit
+  let currMax = 1;
+
+  for (let i = 1; i < trees.length; i++) {
+    // If the fruit is of the same type as last fruit we looked at
+    if (trees[i] === basket1.type) {
+      // increment all appropriate values
+      basket1.count++;
+      type1Streak++;
+      currMax++;
+    }
+    // Else if no second fruit yet
+    else if (basket2.type == undefined) {
+      // basket1 becomes basket2
+      basket2.type = basket1.type;
+      basket2.count = basket1.count;
+
+      // current type takes over basket1
+      basket1.type = trees[i];
+      basket1.count = 1;
+      type1Streak = 1;
+
+      // increment current max
+      currMax++;
+    }
+    // Else if second type of fruit
+    else if (trees[i] === basket2.type) {
+      // temp basket for swap
+      let swap = {
+        type: basket2.type,
+        count: ++basket2.count, // update count
+      };
+
+      // basket2 becomes basket1
+      basket2.type = basket1.type;
+      basket2.count = basket1.count;
+
+      // basket1 becomes basket2
+      basket1.type = swap.type;
+      basket1.count = swap.count;
+      type1Streak = 1;
+
+      // increment appropriate values
+      currMax++;
+    }
+    // Else if third type of fruit
+    else {
+      // Calculate new max
+      maxFruits = Math.max(currMax, maxFruits);
+
+      // Use type1Streak to create new curr
+      currMax = type1Streak + 1;
+
+      // Abandon second to last fruit type
+      // basket1 becomes basket2
+      basket2.type = basket1.type;
+      basket2.count = basket1.count;
+
+      // current type takes over basket1
+      basket1.type = trees[i];
+      basket1.count = 1;
+      type1Streak = 1;
+    }
+  }
+
+  return Math.max(currMax, maxFruits);
+}
 
 module.exports = totalFruit;
