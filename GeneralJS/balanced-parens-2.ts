@@ -6,16 +6,16 @@
  * make your solution work for all types of brackets
  *
  *  Example:
- *  balancedParens('[](){}'); // true
- *  balancedParens('[({})]');   // true
- *  balancedParens('[(]{)}'); // false
+ *  balancedParens2('[](){}'); // true
+ *  balancedParens2('[({})]');   // true
+ *  balancedParens2('[(]{)}'); // false
  *
  * ignore non-bracket characters
- * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
- * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
+ * balancedParens2(' var wow  = { yo: thisIsAwesome() }'); // true
+ * balancedParens2(' var hubble = function() { telescopes.awesome();'); // false
  *
  */
 
-function balancedParens(input): boolean {}
+function balancedParens2(input): boolean {}
 
-module.exports = balancedParens;
+module.exports = balancedParens2;
