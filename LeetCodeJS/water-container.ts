@@ -28,4 +28,4 @@ function maxWater(heights: number[]): number {
 
 }
 
-module.exports = maxArea;
+module.exports = maxWater;
