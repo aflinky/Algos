@@ -1,26 +1,18 @@
-/*
+/**
+ * Balanced Parentheses
+ * 
  * write a function that takes a string of text and returns true if
  * the parentheses are balanced and false otherwise.
+ * make your solution work for all types of brackets
  *
- * Example:
- *   balancedParens('(');  // false
- *   balancedParens('()'); // true
- *   balancedParens(')(');  // false
- *   balancedParens('(())');  // true
- *
- * Step 2:
- *   make your solution work for all types of brackets
- *
- * Example:
+ *  Example:
  *  balancedParens('[](){}'); // true
  *  balancedParens('[({})]');   // true
  *  balancedParens('[(]{)}'); // false
  *
- * Step 3:
  * ignore non-bracket characters
  * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
  * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
- *
  *
  */
 
@@ -42,7 +34,7 @@
 //     return true
 // }
 
-function balancedParens(input) {
+function balancedParens(input): boolean {
   let opensArr = []; //create a stack to keep track of all opens
   let matches = { //dictionary of matches
     "(": ")",
@@ -60,19 +52,6 @@ function balancedParens(input) {
   }
   if (opensArr.length) return false; //if finished with input and stack isn't empty ( => false
   return true;
-
 }
 
-// console.log(balancedParens('()')) //true
-// console.log(balancedParens('(')) //false
-// console.log(balancedParens(')')) //false
-// console.log(balancedParens('}[]')) //false
-// console.log(balancedParens(')kasdjflkdas')) //false
-// console.log(balancedParens('[')) //false
-// console.log(balancedParens('((())[]{})')) //true
-// console.log(balancedParens(' var hubble = function() { telescopes.awesome();')) //false
-// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }')) //true
-// console.log(balancedParens('[](){}')); //true
-// console.log(balancedParens('[({})]')); //true
-// console.log(balancedParens('[(]{)}')); //false
-// console.log(balancedParens('hey'))
+module.exports = balancedParens;
