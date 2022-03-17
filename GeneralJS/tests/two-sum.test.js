@@ -27,5 +27,5 @@ describe('Two Sum', () => {
   
   test('([1, 7], 7)', () => {
     expect(func([1, 7], 7)).toBe(false);
-  });``
+  });
 })

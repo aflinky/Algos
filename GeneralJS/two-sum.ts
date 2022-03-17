@@ -2,7 +2,7 @@
  *  array that sum up to the target value; return false otherwise
  */
 
-function twoSum(arr, n) {
+function twoSum(arr: number[], n: number) {
 
 }
 
