@@ -2,14 +2,14 @@ const func = require('../top-product');
 
 describe('Top Product', () => {
   test('NY', () => {
-    expect(func.topProduct('NY')).toStrictEqual(func.suigei);
+    expect(func.topProduct('New York')).toStrictEqual(func.suigei);
   });
   
   test('MA', () => {
-    expect(func.topProduct('MA')).toStrictEqual(func.sancerre);
+    expect(func.topProduct('Massachusetts')).toStrictEqual(func.sancerre);
   });
   
   test('CO', () => {
-    expect(func.topProduct('CO')).toStrictEqual(func.gin);
+    expect(func.topProduct('Colorado')).toStrictEqual(func.gin);
   });
 })
