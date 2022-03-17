@@ -24,5 +24,4 @@ describe('Water Container', () => {
   test('[1, 1, 1, 1, 1, 1]', () => {
     expect(func([1, 1, 1, 1, 1, 1])).toBe(5);
   });
-
 })
