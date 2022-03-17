@@ -3,20 +3,7 @@
  */
 
 function twoSum(arr, n) {
-    if (arr.length<2 || n===0) return false
-    for (let i=0; i<arr.length; i++) {
-        let diff = n-arr[i];
-        for (let j=arr.length-1; j>i; j--) {
-            if (arr[j]===diff && j!==i) return true;
-        }
-    }
-    return false;
+
 }
 
-
-// console.log(twoSum([1,3,3,4,7], 6))
-// console.log(twoSum([1,3,4,7], 6))
-// console.log(twoSum([1,3,4,7], 0))
-// console.log(twoSum([7], 10))
-// console.log(twoSum([1,3,4,7], 10))
-// console.log(twoSum([1,3,4,7], 16))
+module.exports = twoSum;
