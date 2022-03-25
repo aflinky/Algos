@@ -11,6 +11,27 @@
 
 const solveKnapsack = (items, weightAvailable, index = 0, totalValue = 0) => {
 
+  // attempt for 03/25
+  
+  // base case : no items left or no weight available
+  if(index >= items.length || weightAvailable <= 0){
+    return totalValue;
+  }
+  
+  // base value for include in case item doesn't fit
+  let include = totalValue;
+
+  // take item
+  if(items[index].weight <= weightAvailable){
+    include = solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue + items[index].value);
+  }
+
+  // leave item
+  let exclude = solveKnapsack(items, weightAvailable, index + 1, totalValue);
+
+  //compare values and return greater
+  return include > exclude ? include : exclude;
+
   // // original base case : if there is no more capacity or items return the current total value
   // if(weightAvailable <= 0 || index >= items.length){
   //   return totalValue;
@@ -46,23 +67,23 @@ const solveKnapsack = (items, weightAvailable, index = 0, totalValue = 0) => {
     Explore the full tree -> we need to go through all take and leave cases to ensure max value
   */
 
-  // establish take and leave values
-  let takeItemValue = totalValue;
+  // // establish take and leave values
+  // let takeItemValue = totalValue;
 
-  // base case : no more space or no more items
-  if(weightAvailable < 0 || index >= items.length - 1){
-    return total;
-  }
+  // // base case : no more space or no more items
+  // if(weightAvailable < 0 || index >= items.length - 1){
+  //   return total;
+  // }
 
-  // if the item fits take it
-  if(items[index].weight < weightAvailable){
-    takeItemValue = solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue += items[index].value);
-  }
-  // otherwise leave it
-  leaveItemValue = solveKnapsack(items, weightAvailable, index + 1, totalValue);
+  // // if the item fits take it
+  // if(items[index].weight < weightAvailable){
+  //   takeItemValue = solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue += items[index].value);
+  // }
+  // // otherwise leave it
+  // leaveItemValue = solveKnapsack(items, weightAvailable, index + 1, totalValue);
 
-  // return the greater value between taking and leaving the item
-  return takeItemValue > leaveItemValue ? takeItemValue : leaveItemValue
+  // // return the greater value between taking and leaving the item
+  // return takeItemValue > leaveItemValue ? takeItemValue : leaveItemValue
 };
 
 /*
