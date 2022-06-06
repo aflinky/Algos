@@ -13,7 +13,24 @@
  * Memory Usage: 63.6 MB, less than 100.00% of JavaScript online submissions for Coin Change 2.
  */
 
-var change = function (amount, coins) {};
+var change = function (amount, coins) {
+  if (amount === 0) return 1;
+  const table = [];
+  for (let i = 0; i <= coins.length; i++) {
+    table.push(new Array(amount + 1).fill(0))
+  }
+  for (let i = 1; i <= coins.length; i++) {
+    for (let j = 1; j <= amount; j++) {
+      // if j < curr coin value, take # combos from row above
+      if (j < coins[i - 1]) table[i][j] = table[i - 1][j]
+      // if curr coin value === j, take # combos from row above + 1
+      else if (j === coins[i - 1]) table[i][j] = table[i - 1][j] + 1
+      // else
+      else table[i][j] = table[i-1][j] + table[i][j-coins[i-1]]
+    }
+  }
+  return table[coins.length][amount];
+};
 
 module.exports = change;
 
