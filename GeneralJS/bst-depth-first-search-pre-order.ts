@@ -6,7 +6,51 @@
 
 import { BST } from "../utils/binarySearchTree";
 
-function depthFirstPreOrder(tree: BST): number[] {
+// Solution 1
+// Concat non mutative so more aux mem
+// function depthFirstPreOrder(tree: BST): number[] {
+//   let result = [];
+  
+//   result = result.concat(tree.value);
+//   if (tree.left) {
+//     result = result.concat(depthFirstPreOrder(tree.left));
+//   }
+//   if (tree.right) {
+//     result = result.concat(depthFirstPreOrder(tree.right));
+//   }
+
+//   return result;
+// }
+
+// Solution 2
+// push mutative
+// function depthFirstPreOrder(tree: BST): number[] {
+//   let result = [];
+  
+//   result.push(tree.value);
+//   if (tree.left) {
+//     result.push(...depthFirstPreOrder(tree.left));
+//   }
+//   if (tree.right) {
+//     result.push(...depthFirstPreOrder(tree.right));
+//   }
+
+//   return result;
+// }
+
+// Solution 3
+// Pass along result variable
+export default function depthFirstPreOrder(tree: BST, result = []): number[] {  
+  if (tree.value) result.push(tree.value);
+
+  if (tree.left) {
+    result = depthFirstPreOrder(tree.left, result);
+  }
+  if (tree.right) {
+    result = depthFirstPreOrder(tree.right, result);
+  }
+
+  return result;
 }
 
 module.exports = depthFirstPreOrder;

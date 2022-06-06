@@ -30,7 +30,23 @@
 import { BST } from "../utils/binarySearchTree";
 
 var rangeSumBST = function (root: BST, L: number, R: number): number {
-  
+  // Eval curr value
+  let curr = inRange(root.value, L, R) ? root.value : 0;
+
+  // No branches
+  if (!root.left && !root.left) return curr;
+
+  // Branches
+  const left = root.left ? rangeSumBST(root.left, L, R) : 0;
+  const right = root.right ? rangeSumBST(root.right, L, R) : 0;
+
+  // Sum
+  return curr + left + right;
 };
+
+function inRange(num: number, L: number, R: number): boolean {
+  if (L <= num && num <= R) return true;
+  else return false;
+}
 
 module.exports = rangeSumBST;

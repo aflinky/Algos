@@ -14,8 +14,39 @@
  * Explanation: Subarray with maximum sum is [5, 1, 3].
  */
 
-function maxSumSubarray(arr: number[], k: number) {
+// Brute force O(n*k)
+// function maxSumSubarray(arr: number[], k: number) {
+//   let maxSum = -Infinity;
+//   for (let i = 0; i < arr.length - k + 1; i++) {
+//     let currSum = 0;
+//     for (let j = 0; j < k; j++) {
+//       currSum += arr[i + j];
+//     }
+//     maxSum = Math.max(maxSum, currSum);
+//   }
 
+//   return maxSum;
+// }
+
+// Better O(n)
+function maxSumSubarray(arr: number[], k: number) {
+  let maxSum = -Infinity;
+  let currSum = 0;
+  // Calculate first curr sum
+  for (let i = 0; i < k; i++) {
+    currSum += arr[i];
+  }
+  // Calculate max sum
+  maxSum = Math.max(currSum, maxSum);
+  
+  // Iterate through, constantly keeping track of sum
+  for (let i = k; i < arr.length; i++) {
+    currSum -= arr[i - k];
+    currSum += arr[i];
+    maxSum = Math.max(currSum, maxSum);
+  }
+
+  return maxSum
 }
 
 module.exports = maxSumSubarray;

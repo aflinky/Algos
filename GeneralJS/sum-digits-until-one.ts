@@ -10,8 +10,11 @@
  * Input will be in the range between 0 and 1000000000
  */
 
-function sumDigits(num: number): number {
-  
+ function sumDigits(num: number): number {
+  let numArr = num.toString().split('');
+  const sum = numArr.reduce((acc, curr) => acc + parseInt(curr), 0);
+  if (sum <= 9) return sum;
+  else return sumDigits(sum);
 }
 
 module.exports = sumDigits;
