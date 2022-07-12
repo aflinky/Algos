@@ -29,7 +29,13 @@
  */
 
 function twoSum(arr: number[], n: number): number[] {
-
+  const dict = {};
+  let target;
+  for (let i = 0; i < arr.length; i++) {
+    target = n - arr[i];
+    if (dict.hasOwnProperty(target)) return [dict[target], i];
+    dict[arr[i]] = i;
+  }
 }
 
 module.exports = twoSum;
