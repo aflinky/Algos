@@ -29,6 +29,19 @@
  */
 
 function twoSum(arr: number[], n: number): number[] {
+    /*
+        array =[1, 3, 3, 4, 7]
+        number = 6
+        solution = [1,2] -> 3 + 3 = 6
+    */
+   // original solution but it's gross - how do I keep from doing nested four loops
+   for(let i = 0; i <= arr.length; i++){
+       for(let j = i + 1; j < arr.length; j++){
+           if(arr[i] + arr[j] == n){
+               return [i,j]
+           }
+       }
+   }
 
 }
 
