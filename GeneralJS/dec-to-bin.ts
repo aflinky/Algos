@@ -14,17 +14,6 @@
  *
  */
 
-function decToBin(dec: number): string {
-  if (dec === 0) return "0000";
-  let bin = ""
-  while (dec > 0) {
-    bin = dec%2 + bin;
-    dec = Math.floor(dec/2)
-  }
-  while (bin.length%4 !== 0) {
-    bin = "0"+bin;
-  }
-  return bin;
-}
+function decToBin(dec: number): string {}
 
 module.exports = decToBin;
