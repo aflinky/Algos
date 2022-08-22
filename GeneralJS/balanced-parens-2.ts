@@ -27,42 +27,36 @@ function balancedParens2(input) {
     // breaking case : closed symbol is proceeded by a none matching open symbol
 
     // define regex
-    const parsingRegex = /[\[\]\{\}\(\)]/g;
     const openRegex = /[\[\{\(]/g
     const closedRegex = /[\]\}\)]/g
-    // parens only
-    const parsedInput = input.match(parsingRegex)
     // keep up with pairs 
     let parenStack = []; 
 
-    // if there are no parens
-    if(parsedInput == null) return true
-    // if we start with an open paren
-    if(parsedInput[0].match(openRegex) == null) return false;
-
     // iterate over parens
-    for(let i = 0; i < parsedInput.length; i++) {
+    for(let i = 0; i < input.length; i++) {
         // no one wants to type this every time
-        let curr = parsedInput[i]
-        let prev = parsedInput[i - 1]
+        let curr = input[i]
+        let prev = input[i - 1]
 
-        // check order to remedy failing test : [(]{)}
+        // check order 
         if(curr.match(closedRegex)){
             if(curr == ')' && (prev == '{' || prev == '[')) return false
             if(curr == ']' && (prev == '{' || prev == '(')) return false
             if(curr == '}' && (prev == '(' || prev == '[')) return false
         }
 
-        // equal matches
+        // equal matches == good pairs
         if(curr.match(openRegex)){
             parenStack.push(curr)
         }
         if(curr.match(closedRegex)){
+            if(parenStack.length == 0) return false;
             parenStack.pop();
         }
     }
     // sanity
     console.log(parenStack)
+    
     return parenStack.length == 0
 
 //    // overcomplicated old solution
