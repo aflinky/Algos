@@ -14,8 +14,8 @@
 
 // const multiply = function(a, b) { return a * b }
 // const secureFunc = lockDown(multiply, 'lolol');
-// secureFunc('lolol', 1, 2, 3);   ->  return 6
-// secureFunc('wrong', 1, 2, 3);   ->  401
+// secureFunc('meow', 1, 2);   ->  return 2
+// secureFunc('wrong', 1, 2);   ->  401
 
 function lockDown(func: Function, password: string) {}
 
