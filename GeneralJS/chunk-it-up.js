@@ -8,19 +8,6 @@
 // chunkItUp([1], 2) -> [[1]]
 
 
-function chunkItUp(array, size) {
-  if (size === array.length) return [array];
-  const chunks = [];
-  if (size === 0) return chunks;
-  let chunk = [];
-  for (let i = 0; i < array.length; i++) {
-    chunk.push(array[i]);
-    if (i % size === size - 1 || i === array.length - 1) {
-      chunks.push(chunk);
-      chunk = [];
-    }
-  }
-  return chunks;
-}
+function chunkItUp(array, size) {}
 
 module.exports = chunkItUp;
