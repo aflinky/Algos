@@ -14,17 +14,6 @@
 //   return 2 * x - 1000;
 // });  -> 5
 
-function maxBy(arr, callback) {
-  let greatest = -Infinity;
-  let greatestElem;
-  for (let elem of arr) {
-    let thisCallback = callback(elem);
-    if (thisCallback > greatest) {
-      greatest = thisCallback;
-      greatestElem = elem;
-    }
-  }
-  return greatestElem
-}
+function maxBy(arr, callback) {}
 
 module.exports = maxBy;
