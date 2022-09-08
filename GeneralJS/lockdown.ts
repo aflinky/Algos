@@ -17,13 +17,6 @@
 // secureFunc('lolol', 1, 2, 3);   ->  return 6
 // secureFunc('wrong', 1, 2, 3);   ->  401
 
-function lockDown(func: Function, password: string) {
-  return function (pw, ...args) {
-    if (pw === password) {
-      return func(...args)
-    }
-    return 401;
-  }
-}
+function lockDown(func: Function, password: string) {}
 
 module.exports = lockDown;
