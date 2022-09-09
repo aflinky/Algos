@@ -13,7 +13,7 @@
 // secureFunc('wrong', 1, 2, 3);   ->  401
 
 // const multiply = function(a, b) { return a * b }
-// const secureFunc = lockDown(multiply, 'lolol');
+// const secureFunc = lockDown(multiply, 'meow');
 // secureFunc('meow', 1, 2);   ->  return 2
 // secureFunc('wrong', 1, 2);   ->  401
 
