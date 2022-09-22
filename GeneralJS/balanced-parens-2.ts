@@ -29,6 +29,12 @@ function balancedParens2(input) {
     const closedRegex = /[\]\}\)]/g
     // keep up with pairs 
     let parenStack : string[] = []; 
+    // define matches
+    let parenPairs = {
+        "(" : ")",
+        "{" : "}",
+        "[" : "]"
+    }
 
     // iterate over parens
     for(let i = 0; i < input.length; i++) {
@@ -37,12 +43,8 @@ function balancedParens2(input) {
             parenStack.push(input[i])
         } else if(input[i].match(closedRegex)) { // if closed symbol, evaluate for break
             if(parenStack.length == 0) return false; // not preceded by an open symbol, immediately no
-            // not proceeded by a matching symbol
-            if(input[i] == ')' && (parenStack[parenStack.length - 1] == '{' || parenStack[parenStack.length - 1] == '[')) return false
-            if(input[i] == ']' && (parenStack[parenStack.length - 1] == '{' || parenStack[parenStack.length - 1] == '(')) return false
-            if(input[i] == '}' && (parenStack[parenStack.length - 1] == '(' || parenStack[parenStack.length - 1] == '[')) return false
-            // proceeded by a matching symbol
-            parenStack.pop();
+            // not proceeded by a matching open symbol
+            if(input[i] !== parenPairs[parenStack.pop()!]) return false;
         }
     }
     
