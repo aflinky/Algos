@@ -17,6 +17,18 @@
 // secureFunc('meow', 1, 2);   ->  return 2
 // secureFunc('wrong', 1, 2);   ->  401
 
-function lockDown(func: Function, password: string) {}
+function lockDown(func: Function, password: string) {
+    return function (passedPassword) {
+        if(passedPassword != password) {
+            return 401
+        }
+        else {
+            let passedArguments = [...arguments]
+            passedArguments.shift()
+            passedArguments.forEach(el => Number(el))
+            return func(...passedArguments)
+        }
+    }
+}
 
 module.exports = lockDown;
