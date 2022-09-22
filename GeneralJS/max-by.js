@@ -14,6 +14,15 @@
 //   return 2 * x - 1000;
 // });  -> 5
 
-function maxBy(arr, callback) {}
+function maxBy(arr, callback) {
+  let maxArrayElement = 0
+
+  for(let i = 0; i < arr.length; i++){
+    if(callback(arr[maxArrayElement]) < callback(arr[i])) maxArrayElement = i;
+    console.log(`max array element at position ${i} is at position ${maxArrayElement} and callback solution is ${callback(arr[i])}`);
+  }
+
+  return arr[maxArrayElement];
+}
 
 module.exports = maxBy;
