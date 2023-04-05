@@ -89,6 +89,31 @@ const orders = [
 ];
 
 function topProduct(state: string) {
+  // match state to state code
+  const stateCode = states.find(stateObject => stateObject.state == state)?.stateCode;
+
+  // all products for passed state
+  const stateProducts = orders.filter(order => order.stateCode == stateCode);
+
+  // pull each product
+  // this will get gross and annoying the MINUTE more products are added...
+  const sake = stateProducts.filter(product => product.productId == 1);
+  const wine = stateProducts.filter(product => product.productId == 2);
+  const gin = stateProducts.filter(product => product.productId == 3);
+
+  // determine product appearing most in list of products
+  // there's gotta be a smoother way to do this but I'm not gonna look it up yet
+  let topProduct = 0;
+  if(sake.length > wine.length) {
+    topProduct = 1;
+  } else if (wine.length > sake.length) {
+    topProduct = 2;
+  }
+  if(gin.length > topProduct) topProduct = 3;
+
+  const topProductDetails = products.find(product => product.productId == topProduct)
+
+  return topProductDetails;
 }
 
 module.exports = { topProduct, suigei, sancerre, gin };
