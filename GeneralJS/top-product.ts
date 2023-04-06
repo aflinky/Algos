@@ -93,16 +93,32 @@ function topProduct(state: string) {
   const stateCode = states.find(stateObject => stateObject.state == state)?.stateCode;
 
   // all products for passed state
-  const stateProducts = orders.filter(order => order.stateCode == stateCode);
+  const stateOrders = orders.filter(order => order.stateCode == stateCode);
+  const filteredProducts: any = {};
+  for(let i = 0; i < stateOrders.length; i++) {
+    let currentProductId = stateOrders[i].productId;
+    if(currentProductId in filteredProducts){
+      filteredProducts[currentProductId] = filteredProducts[currentProductId] + 1;
+    } else {
+      filteredProducts[currentProductId] = 1;
+    }
+  }
+  console.log(filteredProducts) // remove log once solution is finalized -> example : {'2' : 2, '1' : 1} product 2 is the top product
+  /*
+  TO DO
+  while building filtered products dict -> determine product key with highest value
+  note : only iterate through filtered products once, make use of existing values (dict), be aware of utilizing variables in different ways
+  */
+
 
   // pull each product
-  // this will get gross and annoying the MINUTE more products are added...
-  const sake = stateProducts.filter(product => product.productId == 1);
-  const wine = stateProducts.filter(product => product.productId == 2);
-  const gin = stateProducts.filter(product => product.productId == 3);
+  // TO DO : refactor logic and remove
+  const sake = stateOrders.filter(product => product.productId == 1);
+  const wine = stateOrders.filter(product => product.productId == 2);
+  const gin = stateOrders.filter(product => product.productId == 3);
 
   // determine product appearing most in list of products
-  // there's gotta be a smoother way to do this but I'm not gonna look it up yet
+  // TO DO : refactor logic and remove
   let topProduct = 0;
   if(sake.length > wine.length) {
     topProduct = 1;
@@ -111,6 +127,7 @@ function topProduct(state: string) {
   }
   if(gin.length > topProduct) topProduct = 3;
 
+  // TO DO : use this logic to match product id from filtered products to product object
   const topProductDetails = products.find(product => product.productId == topProduct)
 
   return topProductDetails;
