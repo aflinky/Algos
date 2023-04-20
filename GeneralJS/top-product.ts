@@ -110,12 +110,6 @@ function topProduct(state: string) {
   }
 
   /*
-    State Orders
-    [
-      { orderId: 2, stateCode: 'NY', productId: 1 },
-      { orderId: 4, stateCode: 'NY', productId: 1 },
-      { orderId: 5, stateCode: 'NY', productId: 2 }
-    ]
     Sorted Products
     {
       '1': 2, 
