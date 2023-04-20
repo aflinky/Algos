@@ -94,42 +94,43 @@ function topProduct(state: string) {
 
   // all products for passed state
   const stateOrders = orders.filter(order => order.stateCode == stateCode);
-  const filteredProducts: any = {};
+
+  // dict to hold productId : number of products
+  const sortedProducts: any = {};
+
+  // iterate through state orders to add orders to sorted products
   for(let i = 0; i < stateOrders.length; i++) {
     let currentProductId = stateOrders[i].productId;
-    if(currentProductId in filteredProducts){
-      filteredProducts[currentProductId] = filteredProducts[currentProductId] + 1;
+    // if the product is already present in dictionary add to number of products with that id
+    if(currentProductId in sortedProducts) {
+      sortedProducts[currentProductId] = sortedProducts[currentProductId] + 1;
     } else {
-      filteredProducts[currentProductId] = 1;
+      sortedProducts[currentProductId] = 1;
     }
   }
-  console.log(filteredProducts) // remove log once solution is finalized -> example : {'2' : 2, '1' : 1} product 2 is the top product
+
   /*
-  TO DO
-  while building filtered products dict -> determine product key with highest value
-  note : only iterate through filtered products once, make use of existing values (dict), be aware of utilizing variables in different ways
+    State Orders
+    [
+      { orderId: 2, stateCode: 'NY', productId: 1 },
+      { orderId: 4, stateCode: 'NY', productId: 1 },
+      { orderId: 5, stateCode: 'NY', productId: 2 }
+    ]
+    Sorted Products
+    {
+      '1': 2, 
+      '2': 1 
+    }
   */
 
+  // find the product id with the highest number of products
+  // full transparency I cobbled this together from a couple of stack overflow comments also I'm still iterating twice (embarrassing)
+  const topProductId = Number(Object.keys(sortedProducts).reduce((a, b) => sortedProducts[a] > sortedProducts[b] ? a : b));
+  
+  // match product id to product details
+  const topProductDetails = products.find(product => product.productId == topProductId);
 
-  // pull each product
-  // TO DO : refactor logic and remove
-  const sake = stateOrders.filter(product => product.productId == 1);
-  const wine = stateOrders.filter(product => product.productId == 2);
-  const gin = stateOrders.filter(product => product.productId == 3);
-
-  // determine product appearing most in list of products
-  // TO DO : refactor logic and remove
-  let topProduct = 0;
-  if(sake.length > wine.length) {
-    topProduct = 1;
-  } else if (wine.length > sake.length) {
-    topProduct = 2;
-  }
-  if(gin.length > topProduct) topProduct = 3;
-
-  // TO DO : use this logic to match product id from filtered products to product object
-  const topProductDetails = products.find(product => product.productId == topProduct)
-
+  // return full product info
   return topProductDetails;
 }
 
