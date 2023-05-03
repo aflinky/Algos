@@ -88,27 +88,53 @@ const orders = [
   },
 ];
 
-function topProduct(state: string) {
-  // match state to state code
-  const stateCode = states.find(stateObject => stateObject.state == state)?.stateCode;
+// original solution
+// function topProduct(state: string) {
+//   // match state to state code
+//   const stateCode = states.find(stateObject => stateObject.state == state)?.stateCode;
 
-  // all products for passed state
-  const stateOrders = orders.filter(order => order.stateCode == stateCode);
+//   // all products for passed state
+//   const stateOrders = orders.filter(order => order.stateCode == stateCode);
+
+//   // dict to hold productId : number of products
+//   const sortedProducts: any = {};
+
+//   // iterate through state orders to add orders to sorted products
+//   for(let i = 0; i < stateOrders.length; i++) {
+//     let currentProductId = stateOrders[i].productId;
+//     // if the product is already present in dictionary add to number of products with that id
+//     if(currentProductId in sortedProducts) {
+//       sortedProducts[currentProductId] = sortedProducts[currentProductId] + 1;
+//     } else {
+//       sortedProducts[currentProductId] = 1;
+//     }
+//   }
+
+//   /*
+//     Sorted Products
+//     {
+//       '1': 2, 
+//       '2': 1 
+//     }
+//   */
+
+//   // find the product id with the highest number of products
+//   // full transparency I cobbled this together from a couple of stack overflow comments also I'm still iterating twice (embarrassing)
+//   const topProductId = Number(Object.keys(sortedProducts).reduce((a, b) => sortedProducts[a] > sortedProducts[b] ? a : b)); // NOTE : I should be able to do this step in side of my for loop
+  
+//   // match product id to product details
+//   const topProductDetails = products.find(product => product.productId == topProductId);
+
+//   // return full product info
+//   return topProductDetails;
+// }
+
+// updated solution -> simplified and streamlined
+function topProduct(state: string) {
+  // orders for passed state
+  const stateOrders = orders.filter(order => order.stateCode == states.find(stateObject => stateObject.state == state)?.stateCode);
 
   // dict to hold productId : number of products
-  const sortedProducts: any = {};
-
-  // iterate through state orders to add orders to sorted products
-  for(let i = 0; i < stateOrders.length; i++) {
-    let currentProductId = stateOrders[i].productId;
-    // if the product is already present in dictionary add to number of products with that id
-    if(currentProductId in sortedProducts) {
-      sortedProducts[currentProductId] = sortedProducts[currentProductId] + 1;
-    } else {
-      sortedProducts[currentProductId] = 1;
-    }
-  }
-
   /*
     Sorted Products
     {
@@ -116,10 +142,20 @@ function topProduct(state: string) {
       '2': 1 
     }
   */
+  const sortedProducts: any = {};
+  let topProductId;
 
-  // find the product id with the highest number of products
-  // full transparency I cobbled this together from a couple of stack overflow comments also I'm still iterating twice (embarrassing)
-  const topProductId = Number(Object.keys(sortedProducts).reduce((a, b) => sortedProducts[a] > sortedProducts[b] ? a : b));
+  // iterate through state orders to add orders to sorted products
+  for(let i = 0; i < stateOrders.length; i++) {
+    let currentProductId = stateOrders[i].productId;
+    // if the product is already present in dictionary add to number of products with that id
+    if(currentProductId in sortedProducts) {
+      sortedProducts[currentProductId] = sortedProducts[currentProductId] + 1;
+      topProductId = sortedProducts[currentProductId] > sortedProducts[currentProductId - 1] || sortedProducts[currentProductId - 1] == undefined ? currentProductId : currentProductId - 1;
+    } else {
+      sortedProducts[currentProductId] = 1;
+    }
+  }
   
   // match product id to product details
   const topProductDetails = products.find(product => product.productId == topProductId);
