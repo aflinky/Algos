@@ -3,8 +3,13 @@
  * (Assume all inputs and data are well-formed and there is a top product, no ties)
  * Very good to do after two-sum
  */
+type State = {
+  stateId: number;
+  state: string;
+  stateCode: string;
+}
 
-const states = [
+const states: State[] = [
   {
     stateId: 1,
     state: 'New York',
@@ -22,25 +27,37 @@ const states = [
   },
 ];
 
-export const suigei = {
+type Product = {
+  productId: number;
+  productType: string;
+  productName: string;
+}
+
+export const suigei: Product = {
   productId: 1,
   productType: 'sake',
   productName: 'Suigei Drunken Whale',
 };
-export const sancerre = {
+export const sancerre: Product = {
   productId: 2,
   productType: 'wine',
   productName: 'Sancerre',
 };
-export const gin = {
+export const gin: Product = {
   productId: 3,
   productType: 'gin',
   productName: 'Empress',
 };
 
-const products = [ suigei, sancerre, gin ];
+const products: Product[] = [ suigei, sancerre, gin ];
 
-const orders = [
+type Order = {
+  orderId: number;
+  stateCode: string;
+  productId: number;
+}
+
+const orders: Order[] = [
   {
     orderId: 1,
     stateCode: 'MA',
@@ -88,7 +105,7 @@ const orders = [
   },
 ];
 
-function topProduct(state: string) {
+function topProduct(state: string): Product {
 }
 
 module.exports = { topProduct, suigei, sancerre, gin };
