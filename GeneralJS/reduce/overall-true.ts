@@ -4,7 +4,11 @@
  * You may assume the array will have at least one element
  */
 function allTrue(arr: number[]): boolean {
-
+    const allDivisible = arr.reduce((isTrue, currentNumber) => {
+        const isDivisible = currentNumber % 2 == 0;
+        return isDivisible && isTrue
+    }, true);
+    return allDivisible;
 }
 
 /**
@@ -13,7 +17,11 @@ function allTrue(arr: number[]): boolean {
  * You may assume the array will have at least one element
  */
 function someTrue(arr: number[]): boolean {
-
+    const someDivisible = arr.reduce((isTrue, currentNumber) => {
+        const isDivisible = currentNumber % 2 == 0;
+        return isDivisible || isTrue
+    }, false);
+    return someDivisible;
 }
 
 module.exports = { allTrue, someTrue };

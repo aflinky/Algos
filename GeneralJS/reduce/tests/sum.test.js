@@ -2,7 +2,7 @@ const func = require('../sum');
 
 describe('Sum (with reduce)', () => {
   test('[1, 3, 3, 4, 5]', () => {
-    expect(func([1, 3, 3, 4, 5])).toBe(15);
+    expect(func([1, 3, 3, 4, 5])).toBe(16);
   });
 
   test('[17]', () => {

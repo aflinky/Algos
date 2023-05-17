@@ -9,5 +9,11 @@ export type Human = {
 }
 
 export function voting(arr: Human[]): number {
-
+    const votingHumans = arr.reduce((acc, curr) => {
+        if(curr.voted == true){
+            acc += 1
+        }
+        return acc
+    }, 0)
+    return votingHumans;
 }
