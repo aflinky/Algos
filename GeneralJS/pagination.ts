@@ -48,13 +48,18 @@ export function pagination(
     // If we towards/at the beginning we will be start at 1
     startingPage = Math.max(1, currentPage - perfectPagesBeforeAndAfterCurrent);
   }
+
+  // paginationString built from starting point for a maximum # of iterations <pagesToShow>
   let paginationString = "";
   if (startingPage > 1) paginationString += "< ";
-  for (let i = startingPage; i <= startingPage + pagesToShow - 1; i++) {
+  for (let i = startingPage; i < startingPage + pagesToShow; i++) {
+    // If current page, add *
     if (i === currentPage) paginationString += `${i}*`;
+    // If last page, no space & break out of for loop
     else if (i === totalPages) {
       paginationString += `${i}`;
       break;
+      // else add page number with a space
     } else paginationString += `${i} `;
   }
   // If there are more pages, add > (we don't need the space cause it's already covered in for loop)
