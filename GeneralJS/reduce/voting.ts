@@ -9,5 +9,5 @@ export type Human = {
 }
 
 export function voting(arr: Human[]): number {
-
+    return arr.reduce((acc, curr) => curr.voted ? acc + 1 : acc, 0);
 }
