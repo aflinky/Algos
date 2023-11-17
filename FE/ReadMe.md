@@ -1,0 +1,1 @@
+FE folder containing some simple FE projects
