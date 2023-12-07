@@ -1,3 +1,15 @@
+# Tic Tac Toe
+Requirements
+- Two players alternating turns
+- 3x3 board
+- Cannot play when someone has won
+- Cannot mark tile more than once
+- Display winner when available
+- Button to start new game
+
+Bonus
+- Display game stats (wins, losses, ties)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
