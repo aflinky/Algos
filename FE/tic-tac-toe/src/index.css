@@ -33,7 +33,7 @@ code {
 }
 
 #board {
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .row {
@@ -51,6 +51,12 @@ code {
   align-items: center;
 }
 
-.green {
-  background: green;
+#results-container {
+  border: 1px dotted black;
+  border-radius: 4px;
+  margin: 20px 0;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
 }

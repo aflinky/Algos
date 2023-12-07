@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 type TileProps = {
   gameState: string[][];
   play: (r: number, c: number) => void;
@@ -9,15 +7,11 @@ type TileProps = {
 
 function Tile(props: TileProps) {
   const { row, col, play, gameState } = props;
-  const [stylingClass, setStylingClass] = useState("");
   const handleOnClick = () => {
-    // console.log("clicked ", row, col);
-    // setStylingClass("green");
     play(row, col);
   };
   return (
-    <div className={`tile ${stylingClass}`} onClick={handleOnClick}>
-      {/* <p>{`Tile ${row}, ${col}`}</p> */}
+    <div className='tile' onClick={handleOnClick}>
       <p>{gameState[row][col]}</p>
     </div>
   );

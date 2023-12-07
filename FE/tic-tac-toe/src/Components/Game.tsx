@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Board from "./Board";
 import Button from "./Button";
+import ResultsContainer from "./ResultsContainer";
 
 function Game() {
   const initialGameState: string[][] = new Array(3).fill(
@@ -99,18 +100,17 @@ function Game() {
   return (
     <div id="game">
       <h1>Tic Tac Toe</h1>
-      <p>{`${gameStats.count} Games Played`}</p>
-      <p>{`Score: ${JSON.stringify(gameStats)}`}</p>
-      <p>
-        {result ? `Game Over: ${result} wins` : `${turnCounter} Turns taken`}
-      </p>
+      {result && result !== 'tie' && <p>{`Game Over: ${result} wins!`}</p>}
+      {result && result === 'tie' && <p>{`Game Over: Tie!`}</p>}
       {!result && <p>{`${player}'s turn`}</p>}
+      <br />
       <Board gameState={gameState} play={play} />
       <Button
         text="New Game"
         ariaLabel="new game button"
         action={startNewGame}
       />
+      <ResultsContainer gameStats={gameStats} />
     </div>
   );
 }
