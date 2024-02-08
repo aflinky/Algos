@@ -121,8 +121,14 @@ function Game() {
   return (
     <div id="game">
       <h1>Memory Game</h1>
+      <p>{`DIFFICULTY: ${difficulty}`}</p>
+      <Slider difficulty={difficulty} changeDifficulty={changeDifficulty} />
+      <br />
+
       {/* unnecessary line below, but you get the gist */}
-      {/* {gameState.gameStatus === GameStatus["not-started"] && null} */}
+      {gameState.gameStatus === GameStatus["not-started"] && (
+        <p style={{ display: "hidden" }} />
+      )}
       {gameState.gameStatus === GameStatus["starting"] && (
         <p>Memorize the highlighted cells!</p>
       )}
@@ -139,9 +145,6 @@ function Game() {
           ${guessState.guesses.length - guessState.correct} mistakes!`}
         </p>
       )}
-      <p>{`DIFFICULTY: ${difficulty}`}</p>
-      <br />
-      <Slider difficulty={difficulty} changeDifficulty={changeDifficulty} />
       <Board
         gameState={gameState}
         boardState={boardState}
