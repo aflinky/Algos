@@ -1,0 +1,23 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#myProgress,
+.progressBar {
+  width: 100%;
+  background-color: grey;
+}
+
+#myBar,
+.complexBar {
+  width: 1%;
+  height: 30px;
+  background-color: green;
+}
+
+#some-element-you-want-to-animate {
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+}

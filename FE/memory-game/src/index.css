@@ -34,7 +34,6 @@ code {
 
 #board {
   margin: 20px 0;
-  border: 1px solid pink;
   max-height: 50vh;
   max-width: 60vw;
   aspect-ratio : 1 / 1;
