@@ -1,29 +1,32 @@
+import { BoardState, GameState, GuessState } from "../types";
 import Tile from "./Tile";
 
 type RowProps = {
-  gameInProgressVariables: Record<string, any>;
-  gameState: string | undefined[][];
+  gameState: GameState;
+  boardState: BoardState;
+  guessState: GuessState;
   guess: (r: number, c: number) => void;
   row: number;
 };
 
 function Row(props: RowProps) {
-  const { row, guess, gameInProgressVariables, gameState } = props;
+  const { row, guess, gameState, boardState, guessState } = props;
   const tiles = [];
   // can define manually
   // for (let i = 0; i < 3; i++) {
-  //   tiles.push(<Tile key={`tile-${row}-${i}`} row={row} col={i} guess={guess} gameState={gameState} />);
+  //   tiles.push(<Tile key={`tile-${row}-${i}`} row={row} col={i} guess={guess} boardState={boardState} />);
   // }
-  // alternatively can define by gameState (this is great if board size is variable)
-  for (let i = 0; i < gameState[row].length; i++) {
+  // alternatively can define by boardState (this is great if board size is variable)
+  for (let i = 0; i < boardState[row].length; i++) {
     tiles.push(
       <Tile
         key={`tile-${row}-${i}`}
         row={row}
         col={i}
         guess={guess}
-        gameInProgressVariables={gameInProgressVariables}
         gameState={gameState}
+        boardState={boardState}
+        guessState={guessState}
       />
     );
   }

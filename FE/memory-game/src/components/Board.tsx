@@ -1,22 +1,31 @@
+import { BoardState, GameState, GuessState } from "../types";
 import Row from "./Row";
 
 type BoardProps = {
-  gameInProgressVariables: Record<string, any>;
-  gameState: string | undefined[][];
+  gameState: GameState;
+  boardState: BoardState;
+  guessState: GuessState;
   guess: (r: number, c: number) => void;
 };
 
 function Board(props: BoardProps) {
-  const { gameInProgressVariables, gameState, guess } = props;
+  const { gameState, boardState, guessState, guess } = props;
   const rows = [];
   // can define manually
   // for (let i = 0; i < 3; i++) {
-  //   rows.push(<Row key={`row-${i}`} row={i} guess={guess} gameState={gameState}/>);
+  //   rows.push(<Row key={`row-${i}`} row={i} guess={guess} boardState={boardState}/>);
   // }
-  // alternatively can define by gameState (this is great if board size is variable)
-  for (let i = 0; i < gameState.length; i++) {
+  // alternatively can define by boardState (this is great if board size is variable)
+  for (let i = 0; i < boardState.length; i++) {
     rows.push(
-      <Row key={`row-${i}`} row={i} guess={guess} gameInProgressVariables={gameInProgressVariables} gameState={gameState} />
+      <Row
+        key={`row-${i}`}
+        row={i}
+        guess={guess}
+        gameState={gameState}
+        boardState={boardState}
+        guessState={guessState}
+      />
     );
   }
   return <div id="board">{rows}</div>;

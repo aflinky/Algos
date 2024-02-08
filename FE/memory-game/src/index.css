@@ -52,6 +52,9 @@ code {
   &.unguessed {
     --color: white;
   }
+  &.lit {
+    --color: lightblue;
+  }
   &.correct {
     --color: green;
   }

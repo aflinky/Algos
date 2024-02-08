@@ -1,12 +1,12 @@
 type SliderProps = {
   difficulty: any;
-  setDifficulty: any;
+  changeDifficulty: any;
 };
 
 function Slider(props: SliderProps) {
-  const {difficulty, setDifficulty} = props;
+  const {difficulty, changeDifficulty} = props;
   const handleSlideChange = (event: any) => {
-    setDifficulty(event.target.value);
+    changeDifficulty(event.target.value);
   }
   return (
     <>
