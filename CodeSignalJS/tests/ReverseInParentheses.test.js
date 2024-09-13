@@ -1,4 +1,4 @@
-const func = require('../ReverseInParentheses');
+const func = require('../reverseInParentheses');
 
 describe('Reverse In Parentheses', () => {
   test('Case: 1', () => {
