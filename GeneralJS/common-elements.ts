@@ -15,7 +15,30 @@
 // if there are no common numbers or strings return empty array
 
 function commonElements(...args: (string | number)[][]): (string | number)[] {
-  return [];
+  const obj = {}; // create empty obj for elements and their counts
+  const argumentArrays = args; // NOTE args = Array.from(arguments)
+  // for each array in arguments
+  argumentArrays.forEach((arr, index) => {
+    // for each elem in each array
+    arr.forEach((elem) => {
+      // if looking at first array, add to object if not already there
+      if (index === 0 && !obj[elem]) obj[elem] = 1;
+      // if looking at other arrays and element in object, increase count (but only once per array)
+      else if (obj[elem] === index) obj[elem] += 1;
+    });
+  });
+
+  let result: (string | number)[] = Object.keys(obj).filter((elem) => {
+    // filter object, keeping elements with counts === # of arguments/arrays
+    return obj[elem] === argumentArrays.length;
+  });
+
+  for (let i = 0; i < result.length; i++) {
+    // coerce numbers back to their primitive data type from string
+    if (!isNaN(result[i] as number))
+      result[i] = JSON.parse(result[i] as string);
+  }
+  return result.length ? result : [];
 }
 
 module.exports = commonElements;
