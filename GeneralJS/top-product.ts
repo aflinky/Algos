@@ -105,7 +105,31 @@ const orders: Order[] = [
   },
 ];
 
-function topProduct(state: string): Product {
+function topProduct(state: string) {
+  const sortedProducts: any = {}; // dict to hold product id and order count
+  let topProductId; // running product with highest count
+
+  // match state to state code
+  const stateCode = states.find(stateObject => stateObject.state == state)?.stateCode;
+
+  // iterate through orders to add orders to sorted products
+  for(let i = 0; i < orders.length; i++) {
+    if(orders[i].stateCode != stateCode) i += 1; // if order's state does not match passed state -> skip order
+    let currentProductId = orders[i].productId; // i just don't wanna type this everytime
+    // if the product is already present in dictionary add to number of products with that id and update top product id
+    if(currentProductId in sortedProducts) {
+      sortedProducts[currentProductId] = sortedProducts[currentProductId] + 1;
+      if(sortedProducts[topProductId] < sortedProducts[currentProductId]|| topProductId == undefined ) topProductId = currentProductId;
+    } else {
+      sortedProducts[currentProductId] = 1;
+    }
+  }
+  
+  // match product id to product details
+  const topProductDetails = products.find(product => product.productId == topProductId);
+
+  // return full product info
+  return topProductDetails;
 }
 
 module.exports = { topProduct, suigei, sancerre, gin };
