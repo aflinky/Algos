@@ -16,6 +16,39 @@
  *
  */
 
-function balancedParens2(input): boolean {}
+function balancedParens2(input) {
+    /*
+        ((())[]{}) = true
+        var hubble = function() { telescopes.awesome();) = false
+    */
+   
+    // breaking case : closed symbol is proceeded by a none matching open symbol
+
+    // define regex
+    const openRegex = /[\[\{\(]/g
+    const closedRegex = /[\]\}\)]/g
+    // keep up with pairs 
+    let parenStack : string[] = []; 
+    // define matches
+    let parenPairs = {
+        "(" : ")",
+        "{" : "}",
+        "[" : "]"
+    }
+
+    // iterate over parens
+    for(let i = 0; i < input.length; i++) {
+        // if open symbol, add to stack
+        if(input[i].match(openRegex)){
+            parenStack.push(input[i])
+        } else if(input[i].match(closedRegex)) { // if closed symbol, evaluate for break
+            if(parenStack.length == 0) return false; // not preceded by an open symbol, immediately no
+            // not proceeded by a matching open symbol
+            if(input[i] !== parenPairs[parenStack.pop()!]) return false;
+        }
+    }
+    
+    return parenStack.length == 0
+}
 
 module.exports = balancedParens2;
