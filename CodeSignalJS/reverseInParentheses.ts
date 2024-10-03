@@ -4,6 +4,42 @@
 // Ex input = "(bar)" => "rab"
 // Ex input = "foo(bar(baz))blim" => "foobazrabblim"
 
-function reverseInParentheses(s: string): string { return "string"}
+function reverseInParentheses(s: string) { 
+    let characterArray = s.split('');
+
+    const parenIndexes = (characterArray) : {start:number | undefined, end:number | undefined} => {
+        let startParen : number | undefined = undefined;
+        let endParen: number | undefined = undefined;
+        for(let i = 0; i < characterArray.length ; i++){
+            let el = characterArray[i]
+            if(el == '('){
+                startParen = i;
+            } else if (el == ')') {
+                endParen = i
+                return {start: startParen,end: endParen}
+            } 
+        } 
+        return {start: startParen,end: endParen}
+    }
+    
+    let startParen = parenIndexes(characterArray).start;
+    let endParen = parenIndexes(characterArray).end;
+    let solution = s;
+
+    while(startParen !== undefined && endParen !== undefined) {
+    
+        const beforeParen = characterArray.slice(0,startParen).join('');
+        const inParen = characterArray.slice(startParen + 1 , endParen).reverse().join('');
+        const afterParen = characterArray.slice(endParen + 1, characterArray.length).join('');
+
+        solution = beforeParen + inParen + afterParen;
+
+        characterArray = solution.split('')
+        startParen = parenIndexes(characterArray).start;
+        endParen = parenIndexes(characterArray).end;
+    }
+    
+    return (solution);
+} 
 
 module.exports = reverseInParentheses;
