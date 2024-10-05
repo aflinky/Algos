@@ -5,11 +5,13 @@
 - Count and Say `JS` (Memo)
 - Power Set `JS` (subsets, recursion)
 - Valid Number `JS` (regex)
-- Coin Change `JS` (combinations, dynamic bottom up)
+- Coin Change `JS` (combinations, DP)
 - Group Anagrams `JS`
-- Water Container `JS`
+- Water Container `JS` (sliding window)
 - First Missing Positive `JS`
 - Fruit Into Baskets `JS`
+- Min Window Substring `JS` (sliding window)
+- House Robber `JS` (DP)
 
 ## CodeSignal Arcade Problems
 ### Intro
@@ -109,7 +111,7 @@
 - Count Twos `JS`
 - Repeat Number `JS`
 - Merge Ranges `JS`
-- Max SubArray `JS`
+- Max SubArray `JS` (sliding window)
 - Anagram `JS`
 - Event-Emitter `JS`
 - Unique Number `JS`
