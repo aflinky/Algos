@@ -6,7 +6,8 @@
  * Runtime: 52 ms, faster than 95.84% of JavaScript online submissions for Container With Most Water.
  * Memory Usage: 35.5 MB, less than 78.79% of JavaScript online submissions for Container With Most Water.
  * 
- * Sliding Window
+ * Sliding Window front/back
+ * https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
  * 
  * You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]).
  * Find two lines that together with the x-axis form a container, such that the container contains the most water.

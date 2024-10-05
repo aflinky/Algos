@@ -3,7 +3,8 @@
  * 
  * Given an array of positive numbers and a positive number ‘k,’ find the maximum sum of any contiguous subarray of size ‘k’.
  * 
- * Sliding Window
+ * Sliding Window fast/catch up
+ * https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
  * 
  * Input: [2, 3, 4, 1, 5], k=2 
  * Output: 7

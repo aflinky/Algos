@@ -1,148 +1,107 @@
 /**
  * Minimum Window Substring
  * https://leetcode.com/problems/minimum-window-substring/
- * 
+ *
  * Given two strings s and t of lengths m and n respectively,
  * return the minimum window substring of s such that every character in t (including duplicates) is included in the window.
  * If there is no such substring, return the empty string "".
- * 
+ *
  * The testcases will be generated such that the answer is unique.
- * 
+ *
  * A substring is a contiguous sequence of characters within the string.
- * 
+ *
+ * Sliding Window
+ *
  * Example 1:
  * Input: s = "ADOBECODEBANC", t = "ABC"
  * Output: "BANC"
  * Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
- * 
+ *
  * Example 2:
  * Input: s = "a", t = "a"
  * Output: "a"
  * Explanation: The entire string s is the minimum window.
- * 
+ *
  * Example 3:
  * Input: s = "a", t = "aa"
  * Output: ""
  * Explanation: Both 'a's from t must be included in the window.
  * Since the largest window of s only has one 'a', return empty string.
- *  
+ *
  * Constraints:
  * m == s.length
  * n == t.length
  * 1 <= m, n <= 105
  * s and t consist of uppercase and lowercase English letters.
-*/
+ */
 
-function minWindowSubstring(str: string, pat: string): string {
-  console.log('string: ', str, 'pattern', pat);
-  // Check pattern not longer than string
-  if (pat.length > str.length) return '';
 
-  // Create a map based on pattern
-  const patMap = {};
-  for (let p = 0; p < pat.length; p++) {
-    if (!patMap.hasOwnProperty(pat[p])) patMap[pat[p]] = 0;
-    patMap[pat[p]]++;
-  }
-  // Hold number of UNIQUE CHARS in pat to see if we satisfy pattern
-  let count = Object.keys(patMap).length;
+// Sliding window - fast/slow
+// https://medium.com/outco/how-to-solve-sliding-window-problems-28d67601a66
+function minWindowSubstring(str: string, pattern: string): string {
+  const patternMap = {};
+  const lettersSeen = {};
+  let windowIndices = [-Infinity, Infinity];
 
-  // Variable to hold the window indices (inclusive start and end)
-  let indices = [-Infinity, Infinity];
-
-  // Fast/slow pointers
-  let i = 0; // Trails behind
-  let j = 0; // Seeks next char -- keeps up with curr
-
-  // Move i until it finds a char in map
-  // Can stop moving when i reaches string length - pattern length + 1
-  // aka when the space between the start and the end of the string
-  // is less than the length of the pattern
-  console.log('before first while')
-  while (i < str.length - pat.length + 1) {
-    // Grab curr char
-    const currChar = str[i];
-    console.log('inside first while', i, j, currChar, patMap.hasOwnProperty(currChar))
-    // If that char is in the pattern map,
-    if (patMap.hasOwnProperty(currChar)) {
-      // adjust j to match (same starting point)
-      j = i;
-      // and break out of while loop
-      break;
+  // map the pattern into a dictionary with char to count
+  // and initialize letters seen to 0s across the board
+  for (let i = 0; i < pattern.length; i++) {
+    if (patternMap.hasOwnProperty(pattern[i])) {
+      patternMap[pattern[i]] += 1;
+    } else {
+      patternMap[pattern[i]] = 1;
+      lettersSeen[pattern[i]] = 0;
     }
-
-    // increment i
-    i++;
   }
-  console.log('after first while', i, j)
-  
-  // Can stop moving when i reaches string length - pattern length + 1
-  // aka when the space between the start and the end of the string
-  // is less than the length of the pattern
-  // && j < length of string
-  console.log('before second while', i, j)
-  while (i < str.length - pat.length + 1 && j < str.length) {
-    console.log('in second while', `i: ${i}, j: ${j}, currChar = ${str[j]}, patMap: ${JSON.stringify(patMap, null, 2)}, count: ${count}`)
-    // Grab curr char
-    const currChar = str[j];
-    // If that char is in the pattern map, decrement
-    if (patMap.hasOwnProperty(currChar)) {
-      patMap[currChar]--;
-      // If char part of patt and we have satisfied that char's req
-      if (patMap[currChar] === 0) {
-        // aka only decrement when # of req instances of char satisfied
-        // decrement count
-        count--;
-      }
-    }
+  let lettersMissing = pattern.length;
 
-    // If count === 0 we have satisfied everything!
-    if (!count) {
-      console.log('we did it!', str.substring(i, j + 1), i, j)
-      // Reevaluate min window
-      const currMinLength = indices[1] - indices[0];
-      // Infinity - (-Infinity) = Infinity
-      // current length of string in window
-      const currLength = j - i + 1;
-      // If we have found a smaller window,
-      // adjust window
-      if (currLength < currMinLength) {
-        indices[0] = i;
-        indices[1] = j;
+  let slow = 0;
+  // iterate through string
+  for (let fast = 0; fast < str.length; fast++) {
+    const fastChar = str[fast];
+    // if we hit a character in the pattern
+    if (pattern.includes(fastChar)) {
+      // increment count in lettersSeen
+      lettersSeen[fastChar] += 1;
+      // if we are under the required count or just hit the required count, decrement lettersMissing
+      if (lettersSeen[fastChar] <= patternMap[fastChar]) {
+        lettersMissing -= 1;
       }
-      console.log('indices', indices)
 
-      // Reincrement count for char we are moving i away from
-      patMap[str[i]]++;
-      if (patMap[str[i]] > 0) count++;
-      
-      // Move i forward to next char in pattern
-      while (i < str.length - pat.length + 1) {
-        i++;
-        console.log('start inner while', i, j, str[i], count, JSON.stringify(patMap, null, 2))
-        // If we find next char in patt
-        if (patMap.hasOwnProperty(str[i])) {
-          // and it brings that char to 0
-          // break out of while loop
-          if (!patMap[str[i]]) break;
-          // else increment count
-          else {
-            patMap[str[i]]++;
-          }
+      // if lettersMissing hits 0, evaluate windowIndices and increment slow pointer
+      if (lettersMissing === 0) {
+        // if we found a smaller window, update window and move slow pointer until lettersMissing hits 1
+        if (windowIndices[1] - windowIndices[0] > fast - slow) {
+          windowIndices = [slow, fast];
         }
-        console.log('end of inner while loop', JSON.stringify(patMap, null, 2), i, count)
+
+        // increment slow pointer
+        while (lettersMissing === 0) {
+          const slowChar = str[slow];
+          if (pattern.includes(slowChar)) {
+            // adjust letter variables
+            lettersSeen[slowChar] -= 1;
+            // be wary of multiples when adjusting lettersMissing
+            if (lettersSeen[slowChar] < patternMap[slowChar]) {
+              lettersMissing += 1;
+            }
+          } else {
+            // reevaluate if window can be smaller
+            if (
+              windowIndices[1] - windowIndices[0] > fast - (slow + 1)
+            ) {
+              windowIndices = [slow + 1, fast];
+            }
+          }
+          slow += 1;
+        }
       }
     }
-
-    // increment j if ?
-    if (count) j++;
   }
 
-  console.log('before return')
-
-  // If no match found, indices[0] === -Infinity and we return ''
-  // Else return subtring based on indices
-  return indices[0] < 0 ? '' : str.substring(indices[0], indices[1] + 1);
+  return windowIndices[0] !== -Infinity
+    ? str.substring(windowIndices[0], windowIndices[1] + 1)
+    : "";
 }
 
 module.exports = minWindowSubstring;
