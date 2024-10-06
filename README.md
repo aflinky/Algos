@@ -12,6 +12,7 @@
 - Fruit Into Baskets `JS`
 - Min Window Substring `JS` (sliding window)
 - House Robber `JS` (DP)
+- Permutation in String (sliding window)
 
 ## CodeSignal Arcade Problems
 ### Intro
