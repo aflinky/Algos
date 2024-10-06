@@ -26,6 +26,7 @@ Constraints:
 s1 and s2 consist of lowercase English letters.
  */
 
+// sliding window, fast/slow
 function checkInclusion(s1: string, s2: string): boolean {
   const s1Map: Record<string, number> = {};
   for (let i = 0; i < s1.length; i++) {
