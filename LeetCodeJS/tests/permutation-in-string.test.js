@@ -6,7 +6,7 @@ describe("Permutation in String", () => {
   });
 
   test("Case 2", () => {
-    expect(func("adc", "dcda")).toBeFalsy();
+    expect(func("adc", "dcda")).toBeTruthy();
   });
 
   test("Case 3", () => {
