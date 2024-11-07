@@ -21,22 +21,21 @@ function reverseInParentheses(s: string) {
         } 
         return {start: startParen,end: endParen}
     }
-    
-    let startParen = parenIndexes(characterArray).start;
-    let endParen = parenIndexes(characterArray).end;
+
+    let {start, end} = parenIndexes(characterArray)
     let solution = s;
 
-    while(startParen !== undefined && endParen !== undefined) {
+    while(start !== undefined && end !== undefined) {
     
-        const beforeParen = characterArray.slice(0,startParen).join('');
-        const inParen = characterArray.slice(startParen + 1 , endParen).reverse().join('');
-        const afterParen = characterArray.slice(endParen + 1, characterArray.length).join('');
+        const beforeParen = characterArray.slice(0,start).join('');
+        const inParen = characterArray.slice(start + 1 , end).reverse().join('');
+        const afterParen = characterArray.slice(end + 1, characterArray.length).join('');
 
         solution = beforeParen + inParen + afterParen;
 
-        characterArray = solution.split('')
-        startParen = parenIndexes(characterArray).start;
-        endParen = parenIndexes(characterArray).end;
+        characterArray = solution.split('');
+        start = parenIndexes(characterArray).start;
+        end = parenIndexes(characterArray).end;
     }
     
     return (solution);
