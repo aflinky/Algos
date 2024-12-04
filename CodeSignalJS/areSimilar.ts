@@ -8,7 +8,22 @@
 // Ex input: a = [1, 2, 3] and b = [3, 1, 2] => false
 
 function areSimilar(a: any[], b: any[]): boolean {
-  return true;
+  let swapCount = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    // check equality of each element 
+    if (a[i] !== b[i]) {
+      // check for swap
+      if (a[i] === b[i + 1]) {
+        swapCount++;
+        i++; // skip "swapped" element to avoid false negatives
+      } else { 
+        return false; // no swap, get outta here 
+      }
+    }
+  }
+
+  return swapCount <= 1;
 }
 
 module.exports = areSimilar;
