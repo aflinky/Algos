@@ -15,7 +15,18 @@
 // if there are no common numbers or strings return empty array
 
 function commonElements(...args: (string | number)[][]): (string | number)[] {
-  return [];
+
+  let inCommon = args[0].filter((el) => args[1].find((innerEl) => (innerEl === el)));
+
+  for(let i = 2; i < args.length; i++) {
+    for(let j = 0; j < inCommon.length; j++) {
+      if(!args[i].includes(inCommon[j])) {
+        inCommon.splice(j)
+      }
+    }
+  }
+
+  return inCommon;
 }
 
 module.exports = commonElements;

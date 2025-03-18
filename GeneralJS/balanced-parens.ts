@@ -27,16 +27,5 @@ function balancedParens(input): boolean {
   return balanced == 0;
 }
 
-/*
-())(
- balanced = 0 
-
-( = +1
- balanced = 1
-) = -1
- balanced = 0
-) = QUIT 
-( = skipped
-*/
 
 module.exports = balancedParens;
