@@ -20,4 +20,8 @@ describe('Reverse In Parentheses', () => {
   test('Case: 5', () => {
     expect(func('foo((bar(baz)))blim')).toBe('foobarzabblim');
   });
+  
+  test('Case: 6', () => {
+    expect(func('foo((bar)(baz))blim')).toBe('foobazbarblim');
+  });
 })
