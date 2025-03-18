@@ -2,159 +2,206 @@
   You have a knapsack with a weight limit.
   You are presented with an array of objects, each with its own weight and value.
   Find the maximum value you can fit into your knapsack, given the weight constraint.
-
   e.g.
   items = [{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}];
   solveKnapsack(items, 3); // returns 7 (from items[0] and items[1])
   solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 */
 
-// *****************************
-// Dynamic Programming (Top Down)
-//
-// Time Complexity: O(2^n) - Exponential 
-// Space Complexity: O(n) - Linear (depth of tree)
-// *****************************
+/*
+Top Down
+*/
 
-const solveKnapsack = (items, weightAvailable, index = 0, accValue = 0) => {
-  // Base case, if we have run out of items or space, return accumulated value
-  if (!items[index] || !weightAvailable) return accValue;
+// const solveKnapsack = (items, weightAvailable, index = 0, totalValue = 0) => {
 
-  // Grab weight and value of current item
-  const { weight, value } = items[index];
-
-  // If the weight of the current item is greater than the weight available, move onto the next item
-  if (weightAvailable < weight) return solveKnapsack(items, weightAvailable, index + 1, accValue);
-
-  // Finally, return the max of 
-  return Math.max(
-    // The path where we take the item
-    solveKnapsack(items, weightAvailable - weight, index + 1, accValue + value), 
-    // The path where we leave the item
-    solveKnapsack(items, weightAvailable, index + 1, accValue)
-  );
-};
-
-/**
- * Top Down Walkthrough Test Case 1
- * 
- * items: [
- *    { weight: 1, value: 3 },
- *    { weight: 2, value: 4 },
- *    { weight: 3, value: 5 }
- * ]
- * weightAvailable: 3
- * answer: 7
- * 
- * A) solveKnapsack(items, 3, 0, 0) (max = 7)
- *    items[0] exists, weightAvail 3 > 0 => continue
- *    weight: 1, value: 3
- *    weightAvail 3 < weight 3 = false => continue
- *    >> return max between (B=7 vs C=5)
- *    B = TAKE items[0]
- *    B) solveKnapsack(items, 3-1, 0+1, 0+3) (max B = 7)
- *        => solveKnapsack(items, 2, 1, 3)
- *           items[1] exists, weightAvail 2 > 0 => continue
- *           weight: 2, value: 4
- *           weightAvail 2 < weight 2 = false => continue
- *           >> return max between (B i=7 vs B ii=3)
- * 
- *           B i = TAKE items[1]
- *           B i) solveKnapsack(items, 2-2, 1+1, 3+4) (=== 7)
- *              => solveKnapsack(items, 0, 2, 7)
- *                 items[1] exists, but weightAvail === 0 =>
- *                 CANNOT TAKE items[2] with items[0, 1]
- *                 >> return accValue 7 (end of path, items taken [0,1])
- *           B ii = LEAVE items[1]
- *           B ii) solveKnapsack(items, 2, 1+1, 3) (=== 3)
- *              => solveKnapsack(items, 2, 2, 3)
- *                 items[2] exists, weightAvail 2 > 0 => continue
- *                 weight: 3, value: 5
- *                 weightAvail 2 < weight 3 = true (adding this item will exceed weight limit so we leave it)
- *                 CANNOT TAKE items[2] with items[0]
- *                 >> return solveKnapsack(items, 2, 2+1, 3)
- *                    => solveKnapsack(items, 2, 3, 3)
- *                       items[3] DOES NOT EXIST
- *                       >> return accValue 3 (end of path, items taken [0])
- * 
- *    C = LEAVE items[0]
- *    C) solveKnapsack(items, 3, 0+1, 0) (max C = 5)
- *        => solveKnapsack(items, 3, 1, 0) (basically starting problem as if the first item didn't exist)
- *           items[1] exists, weightAvail 3 > 0 => continue
- *           weight: 2, value: 4
- *           weightAvail 3 < weight 2 = false => continue
- *           >> return max between (C i=4 vs C ii=5)
- * 
- *           C i = TAKE items[1]
- *           C i) solveKnapsack(items, 3-2, 1+1, 0+4) (=== 4)
- *              => solveKnapsack(items, 1, 2, 4)
- *                 items[2] exists, weightAvail 1 > 0 => continue
- *                 weight: 3, value: 5
- *                 weightAvail 1 < weight 3 = true (adding this item will exceed weight limit so we leave it)
- *                 CANNOT TAKE items[2]
- *                 >> return solveKnapsack(items, 1, 2+1, 4) (=== 4)
- *                    => solveKnapsack(items, 1, 3, 4)
- *                       items[3] DOES NOT EXIST
- *                       >> return accValue 4 (end of path, items taken [1])
- *           C ii = LEAVE items[1]
- *           C ii) solveKnapsack(items, 3, 1+1, 0) (=== 5)
- *              => solveKnapsack(items, 3, 2, 0) (basically starting problem as if the first two items didn't exist)
- *                 items[2] exists, weightAvail 3 > 0 => continue
- *                 weight: 3, value: 5
- *                 weightAvail 3 < weight 3 = false => continue
- *                 >> return max between (C ii a=5 vs C ii b=0)
- * 
- *                 C ii a = TAKE items[2]
- *                 C ii a) solveKnapsack(items, 3-3, 2+1, 0+5) (=== 5)
- *                    => solveKnapsack(items, 1, 3, 5)
- *                       items[3] DOES NOT EXIST
- *                       >> return accValue 5 (end of path, items taken [2])
- *                 C ii b = LEAVE items[2]
- *                 C ii b) solveKnapsack(items, 3, 2+1, 0) (=== 0)
- *                    => solveKnapsack(items, 3, 3, 0)
- *                       items[3] DOES NOT EXIST
- *                       >> return accValue 0 (end of path, items taken [NONE])
- */
-
-
-// *****************************
-// Dynamic Programming (Bottom Up)
-//
-// Time Complexity: O(n * w) where n is length of 'items' array and w is the weightAvailable
-// Space Complexity: O(n * w)
-// *****************************
-
-// const solveKnapsack = (items, weightAvailable) => {
-//   // Idea is to create an n x w matrix, where n is length of items array and w is weightAvailable
-//   // Call this matrix M. M[i][j] represents the max value with i items and j weightAvailable.
-//   // M[i][j] = max(M[i - 1][j], V[i] + M[i - 1][j - W[i]])
-//   const table = [];
-//   const n = items.length;
-
-//   // Build n x w matrix
-//   // Populate first row and column with zeros
-//   // If we have zero items, we can't pick up any items
-//   // If the amount of weight available in our bag is zero, then we can't pick up any items (assuming there are no valuable weightless items)
-//   for (let i = 0; i <= n; i += 1) {
-//     table.push(new Array(weightAvailable + 1).fill(0));
-//   }
-
-//   // Build table bottoms-up using the following formula: M[i][j] = max(M[i - 1][j], V[i] + M[i - 1][j - W[i]])
-//   // Idea is you have two choices as you increase the number of items: Take it / Leave it
-//   // M[i][j] (max value given choice of first i items, at weight j)
-//   // If you take it, then we add the value of the item to the max value of having i-1 options with weight capacity j - W[i]
-//   // If you leave it, then the max value is the max value of having i-1 options with the same weight capacity
-//   // value (of curr item) + M[i-1][j-weight] (max value from before when there is still room) = if you do take the item
-//   // M[i-1][j] (i-1 items, at weight j) = if you don't take the item
-//   for (let i = 1; i <= n; i += 1) {
-//     const { weight, value } = items[i - 1];
-//     for (let j = 1; j <= weightAvailable; j += 1) {
-//       if (weight > j) table[i][j] = table[i - 1][j];
-//       else table[i][j] = Math.max(table[i - 1][j], value + table[i - 1][j - weight]);
+//     // base case : no items left or no weight available
+//     if(index >= items.length || weightAvailable <= 0){
+//       return totalValue;
 //     }
-//   }
-//   // Return the last element of the matrix
-//   return table[n][weightAvailable];
+
+//     // base value for include in case item doesn't fit
+//     let include = totalValue;
+
+//     // take item
+//     if(items[index].weight <= weightAvailable){
+//       include = solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue + items[index].value);
+//     }
+
+//     // leave item
+//     let exclude = solveKnapsack(items, weightAvailable, index + 1, totalValue);
+
+//     //compare values and return greater
+//     return include > exclude ? include : exclude;
+
+//     // // original base case : if there is no more capacity or items return the current total value
+//     // if(weightAvailable <= 0 || index >= items.length){
+//     //   return totalValue;
+//     // }
+//     // // original solution : does not give highest value
+//     // // if the current item can fit, add it to the knapsack
+//     // if(items[index].weight <= weightAvailable){
+//     //   return solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue += items[index].value);
+//     // } else {
+//     //   // if the current item cannot fit, do not add it to the knapsack and return the previous total value
+//     //   return totalValue;
+//     // }
+
+//     // // base case : if there is no more capacity or items return the current total value
+//     // if(weightAvailable < 0 || index >= items.length - 1){
+//     //   return totalValue;
+//     // }
+
+//     // // compare value of taking or leaving items
+//     // let takeItemValue = totalValue;
+
+//     // if(items[index].weight < weightAvailable){ // if the item fits
+//     //   takeItemValue = solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue += items[index].value);
+//     // }
+
+//     // let leaveItemValue = solveKnapsack(items, weightAvailable, index + 1, totalValue);
+
+//     // return takeItemValue > leaveItemValue ? takeItemValue : leaveItemValue
+
+//     /*
+//       Solution Feedback
+//       I only care about two values -> each iteration we need to choose the greater value between take and leave
+//       Explore the full tree -> we need to go through all take and leave cases to ensure max value
+//     */
+
+//     // // establish take and leave values
+//     // let takeItemValue = totalValue;
+
+//     // // base case : no more space or no more items
+//     // if(weightAvailable < 0 || index >= items.length - 1){
+//     //   return total;
+//     // }
+
+//     // // if the item fits take it
+//     // if(items[index].weight < weightAvailable){
+//     //   takeItemValue = solveKnapsack(items, weightAvailable - items[index].weight, index + 1, totalValue += items[index].value);
+//     // }
+//     // // otherwise leave it
+//     // leaveItemValue = solveKnapsack(items, weightAvailable, index + 1, totalValue);
+
+//     // // return the greater value between taking and leaving the item
+//     // return takeItemValue > leaveItemValue ? takeItemValue : leaveItemValue
 // };
+
+/*
+Bottom Up!
+You have a knapsack with a weight limit.
+You are presented with an array of objects, each with its own weight and value.
+Find the maximum value you can fit into your knapsack, given the weight constraint.
+e.g.
+items = [{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}];
+solveKnapsack(items, 3); // returns 7 (from items[0] and items[1])
+solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
+*/
+
+/*
+Build a matrix : weight available by number of items accounting for 0 with max value populating the cells
+WA by # of items   | 0 | 1 | 2 | 3 |
+```````````````````|```|```|```|```|
+eval 0 items       | 0 | 0 | 0 | 0 |
+```````````````````|```|```|```|```|
+eval item[0]       | 0 | 3 | 3 | 3 |
+weight: 1 value : 3|   |   |   |   |
+```````````````````|```|```|```|```|
+eval item[1]       | 0 | 3 | 4 | 7 |
+weight: 2 value : 4|   |   |   |   |
+```````````````````|```|```|```|```|
+eval item[2]       | 0 | 3 | 4 | 7 |
+weight: 3 value : 5|   |   |   |   |
+* 7 is the max weight value combo since it is the last value in the matrix *
+*/
+
+const solveKnapsack = (items, weightAvailable) => {
+  /* assume items = [{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}]; and weight available = 3 in all comments for simplicity */
+
+  // empty matrix to populate with max values for taking or leaving items on available weights
+  let ksMatrix = [];
+
+  // populate matrix with 0s > the value will remain 0 for the first row and first column (no items + no weight available)
+  /*
+  iteration visualization
+  starting point : []
+  array length set by weight available + 1 (to account for 0)
+  iteration 1 : 0 items
+  [
+      [0,0,0,0]
+  ]
+  iteration 2 : 1 item
+  [
+      [0,0,0,0],
+      [0,0,0,0]
+  ]
+  iteration 3 : 2 items
+  [
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0]
+  ]
+  iteration 4 : 3 items
+  [
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0]
+  ]
+  */
+  for(let i = 0; i <= items.length; i++) {
+      ksMatrix.push(new Array(weightAvailable + 1).fill(0));
+  }
+
+  // iterate over items to build matrix
+  /*
+  current matrix before iteration
+  [
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0],
+      [0,0,0,0]
+  ]
+  */
+ // for outer loop iterate over items [{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}] BUT start with 1 to start with 1 item instead of 0 items
+  for(let i = 1; i <= items.length; i++) {
+      /*
+      for each iteration set weight and value object by item weight and value
+      example : iteration 1 > items[0] = {weight: 1, value : 3}
+      */
+      const weight = items[i - 1].weight;
+      const value = items[i - 1].value;
+      // for inner loop build from 1 (to start with 1 weight avail instead of 0 weight avail) to max weight available
+      for (let j = 1; j <= weightAvailable; j++){
+          // if weight of current item is greater than current weight available (building up to max weight available) pull value from cell above (i-1)
+          /*
+          iteration visualization
+          i = 2 | j = 1
+          item[2-1] =  {weight: 2, value : 4} & weight available = 1 > weight of item is greater than current weight available
+          [0,0,0,0],
+          [0,3,3,3],
+          [0,*3*,...,...]
+          */
+          if(weight > j) ksMatrix[i][j] = ksMatrix[i -1][j];
+
+          // if weight of current item can fit determine if adding item gets higher value than previously checked item + weight combos 
+          else {
+              let previousValue = ksMatrix[i - 1][j] // one cell above (taking previous highest value -> leave item)
+              let newValue = ksMatrix[i - 1][j - weight] + value // one row above weight appropriate addition of previous value to current item at current weight 
+              /*
+              iteration visualization
+              i = 2 | j = 2
+              item[2-1] = {weight: 2, value : 4}
+              [0,0,0,0],
+              [0,3,3,3],
+              [0,3,*4*,...]
+              */
+              ksMatrix[i][j] = Math.max(previousValue, newValue); // set cell value to greater of two values
+          }
+      }
+  }
+  // return last item of the matrix -> max weight + max value
+  return ksMatrix[items.length][weightAvailable]
+}
 
 module.exports = solveKnapsack;
