@@ -20,4 +20,8 @@ describe('Are Similar', () => {
   test('Case: 5', () => {
     expect(func([1, 2, 3], [3, 1, 2])).toBe(false);
   });
+  
+  test('Case: 6', () => {
+    expect(func([1, 2, 3, 4], [4, 2, 3, 1])).toBe(true);
+  });
 })

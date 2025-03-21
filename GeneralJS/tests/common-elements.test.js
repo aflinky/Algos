@@ -7,38 +7,44 @@ const array4 = ["ferret", 12, 12, 45, 9, 66, 77, 78, 2000];
 
 describe("Common Elements", () => {
   test("Case 1", () => {
-    expect(func(array1, array2)).toEqual(
-      expect.arrayContaining([12, "ferret"])
-    );
+    const result = func(array1, array2);
+    const expectedResult = [12, "ferret", "dog"];
+    expect(result.length).toBe(expectedResult.length);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
-  
+
   test("Case 2", () => {
-    expect(func(array1, array2, array3)).toEqual(
-      expect.arrayContaining([12, "ferret"])
-    );
+    const result = func(array1, array2, array3);
+    const expectedResult = [12, "ferret", "dog"];
+    expect(result.length).toBe(expectedResult.length);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
-  
+
   test("Case 3", () => {
-    expect(func(array1, array2, array3, array4)).toEqual(
-      expect.arrayContaining([12, "ferret"])
-    );
+    const result = func(array1, array2, array3, array4);
+    const expectedResult = [12, "ferret"];
+    expect(result.length).toBe(expectedResult.length);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
-  
+
   test("Case 4", () => {
-    expect(func(array1, [])).toEqual(
-      expect.arrayContaining([])
-    );
+    const result = func(array1, []);
+    const expectedResult = [];
+    expect(result.length).toBe(expectedResult.length);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
-  
+
   test("Case 5", () => {
-    expect(func([], [])).toEqual(
-      expect.arrayContaining([])
-    );
+    const result = func([], []);
+    const expectedResult = [];
+    expect(result.length).toBe(expectedResult.length);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
-  
+
   test("Case 6", () => {
-    expect(func(array1, array2, [1, 2, 3])).toEqual(
-      expect.arrayContaining([])
-    );
+    const result = func(array1, array2, [1, 2, 3]);
+    const expectedResult = [];
+    expect(result.length).toBe(expectedResult.length);
+    expect(result).toEqual(expect.arrayContaining(expectedResult));
   });
 });
