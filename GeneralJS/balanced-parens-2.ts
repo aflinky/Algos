@@ -1,4 +1,5 @@
 /**
+ * 
  * Balanced Parentheses
  * 
  * write a function that takes a string of text and returns true if
@@ -16,6 +17,25 @@
  *
  */
 
-function balancedParens2(input): boolean {}
+function balancedParens2(input): boolean {
+    const brackets: string[] = [];
+    const bracketTypes = {
+        "(": ")",
+        "{": "}",
+        "[": "]"
+    };
+    for (let i = 0; i < input.length; i++) {
+        if(bracketTypes[input[i]]) {
+            brackets.push(input[i]);
+        } else if (Object.values(bracketTypes).includes(input[i])) {
+            if (bracketTypes[brackets[brackets.length - 1]] === input[i]) {
+                brackets.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+    return brackets.length === 0;
+}
 
 module.exports = balancedParens2;
